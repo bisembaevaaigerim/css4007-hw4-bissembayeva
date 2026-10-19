@@ -282,7 +282,27 @@ Good points: it is more flexible (the model can ask about anything, not only my 
 ### B2 — Tests
 
 ```text
-<!-- pytest output -->
+tests/test_tools.py::test_calculate_multiplication PASSED                                                                                                  [  5%]
+tests/test_tools.py::test_calculate_q09_difference PASSED                                                                                                  [ 10%]
+tests/test_tools.py::test_calculate_refuses_import PASSED                                                                                                  [ 15%]
+tests/test_tools.py::test_calculate_refuses_class PASSED                                                                                                   [ 21%]
+tests/test_tools.py::test_calculate_refuses_huge_power_fast PASSED                                                                                         [ 26%]
+tests/test_tools.py::test_calculate_refuses_other_huge_powers PASSED                                                                                       [ 31%]
+tests/test_tools.py::test_calculate_division_by_zero PASSED                                                                                                [ 36%]
+tests/test_tools.py::test_calculate_refuses_functions_and_text PASSED                                                                                      [ 42%]
+tests/test_tools.py::test_calculate_bad_input_does_not_crash PASSED                                                                                        [ 47%]
+tests/test_tools.py::test_lookup_finds_2025_population PASSED                                                                                              [ 52%]
+tests/test_tools.py::test_lookup_takes_2025_not_2020 PASSED                                                                                                [ 57%]
+tests/test_tools.py::test_lookup_uses_correction PASSED                                                                                                    [ 63%]
+tests/test_tools.py::test_lookup_skips_archived_profile PASSED                                                                                             [ 68%]
+tests/test_tools.py::test_lookup_misspelled_name PASSED                                                                                                    [ 73%]
+tests/test_tools.py::test_lookup_similar_names_are_different PASSED                                                                                        [ 78%]
+tests/test_tools.py::test_lookup_part_of_name_is_not_guessed PASSED                                                                                        [ 84%]
+tests/test_tools.py::test_lookup_converts_cubic_metres PASSED                                                                                              [ 89%]
+tests/test_tools.py::test_lookup_water_tariff PASSED                                                                                                       [ 94%]
+tests/test_tools.py::test_lookup_bad_input_does_not_crash PASSED                                                                                           [100%]
+
+====================================================================== 19 passed in 0.15s =======================================================================
 ```
 
 ### B3 — The loop
