@@ -1,0 +1,44 @@
+[
+  {
+    "question_id": "Q-01",
+    "final_text": "Ossbridge has the higher 2025 population density, by 4.570 residents per square kilometre.\n\nANSWER: Ossbridge | 4.570",
+    "answer_name": "Ossbridge",
+    "answer_number": 4.57,
+    "unanswered": false,
+    "model_calls": 4,
+    "tool_calls": 7,
+    "input_tokens": 4648,
+    "output_tokens": 232,
+    "seconds": 7.04,
+    "correct": true,
+    "expected": "Ossbridge | 4.6"
+  },
+  {
+    "question_id": "Q-03",
+    "final_text": "Lindenmoor used more water: 5.340 litres per resident per day more than Kelmarsh.\n\nANSWER: Lindenmoor | 5.340",
+    "answer_name": "Lindenmoor",
+    "answer_number": 5.34,
+    "unanswered": false,
+    "model_calls": 4,
+    "tool_calls": 7,
+    "input_tokens": 4835,
+    "output_tokens": 258,
+    "seconds": 6.785,
+    "correct": true,
+    "expected": "Lindenmoor | 5.3"
+  },
+  {
+    "question_id": "Q-09",
+    "final_text": "Millbrook has the higher 2025 population density, by 0.556 residents per square kilometre.\n\nANSWER: Millbrook | 0.556",
+    "answer_name": "Millbrook",
+    "answer_number": 0.556,
+    "unanswered": false,
+    "model_calls": 4,
+    "tool_calls": 7,
+    "input_tokens": 4697,
+    "output_tokens": 225,
+    "seconds": 6.225,
+    "correct": true,
+    "expected": "Millbrook | 0.6"
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+    "question_id": "Q-01",
+    "answer_name": "Ossbridge",
+    "answer_number": 4.57,
+    "votes": "2 of 5",
+    "all_answers": [
+      "Ossbridge | 4.569",
+      "Ossbridge | 4.572",
+      "Ossbridge | 4.57",
+      "Ossbridge | 4.568",
+      "Ossbridge | 4.57"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11075,
+    "output_tokens": 841,
+    "seconds": 10.518,
+    "correct": true,
+    "expected": "Ossbridge | 4.6"
+  },
+  {
+    "question_id": "Q-03",
+    "answer_name": "Lindenmoor",
+    "answer_number": 5.288,
+    "votes": "1 of 5",
+    "all_answers": [
+      "Lindenmoor | 5.288",
+      "Lindenmoor | 5.352",
+      "Lindenmoor | 5.255",
+      "Lindenmoor | 5.185",
+      "Lindenmoor | 5.235"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11105,
+    "output_tokens": 1266,
+    "seconds": 14.555,
+    "correct": true,
+    "expected": "Lindenmoor | 5.3"
+  },
+  {
+    "question_id": "Q-09",
+    "answer_name": "Millbrook",
+    "answer_number": 0.575,
+    "votes": "1 of 5",
+    "all_answers": [
+      "Millbrook | 0.575",
+      "Millbrook | 0.572",
+      "Millbrook | 0.573",
+      "Millbrook | 0.558",
+      "Millbrook | 0.57"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11075,
+    "output_tokens": 901,
+    "seconds": 11.037,
+    "correct": true,
+    "expected": "Millbrook | 0.6"
+  }
+]

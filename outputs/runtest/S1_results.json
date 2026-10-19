@@ -1,0 +1,41 @@
+[
+  {
+    "question_id": "Q-01",
+    "final_text": "Ossbridge has the higher 2025 population density. Its density is 41.185 residents/km² versus Ossford’s 36.615 residents/km², a difference of 4.570 residents/km².\n\nANSWER: Ossbridge | 4.570",
+    "answer_name": "Ossbridge",
+    "answer_number": 4.57,
+    "unanswered": false,
+    "model_calls": 1,
+    "input_tokens": 2189,
+    "output_tokens": 57,
+    "seconds": 2.791,
+    "correct": true,
+    "expected": "Ossbridge | 4.6"
+  },
+  {
+    "question_id": "Q-03",
+    "final_text": "Kelmarsh. Lindenmoor used 2,151,400 m³ = 2,151,400,000 litres; Kelmarsh used 1,739,000,000 litres. Using 365 days:\n\n- Lindenmoor: 2,151,400,000 ÷ 29,051 ÷ 365 = 202.92 L/resident/day\n- Kelmarsh: 1,739,000,000 ÷ 24,117 ÷ 365 = 197.56 L/resident/day\n\nLindenmoor used more by 5.360 litres per resident per day.\n\nANSWER: Lindenmoor | 5.360",
+    "answer_name": "Lindenmoor",
+    "answer_number": 5.36,
+    "unanswered": false,
+    "model_calls": 1,
+    "input_tokens": 2195,
+    "output_tokens": 138,
+    "seconds": 2.083,
+    "correct": true,
+    "expected": "Lindenmoor | 5.3"
+  },
+  {
+    "question_id": "Q-09",
+    "final_text": "Millbrook has the higher 2025 population density. Brightwater: 44,675 ÷ 921.4 = 48.479 residents/km²; Millbrook: 37,203 ÷ 758.6 = 49.054 residents/km². Difference: 0.575 residents/km².\n\nANSWER: Millbrook | 0.575",
+    "answer_name": "Millbrook",
+    "answer_number": 0.575,
+    "unanswered": false,
+    "model_calls": 1,
+    "input_tokens": 2189,
+    "output_tokens": 77,
+    "seconds": 1.637,
+    "correct": true,
+    "expected": "Millbrook | 0.6"
+  }
+]

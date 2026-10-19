@@ -1,0 +1,54 @@
+{
+  "model": "gpt-5.6-luna",
+  "k": 5,
+  "time": "Tue Oct 20 02:59:21 2026",
+  "summary": {
+    "S1": {
+      "correct": 3,
+      "questions": 3,
+      "unanswered": 0,
+      "input_tokens": 6573,
+      "output_tokens": 272,
+      "median_seconds": 2.08,
+      "total_seconds": 6.5,
+      "cost": 0.0016
+    },
+    "S2": {
+      "correct": 3,
+      "questions": 3,
+      "unanswered": 0,
+      "input_tokens": 33255,
+      "output_tokens": 3008,
+      "median_seconds": 11.04,
+      "total_seconds": 36.1,
+      "cost": 0.0103
+    },
+    "S3": {
+      "correct": 3,
+      "questions": 3,
+      "unanswered": 0,
+      "input_tokens": 14180,
+      "output_tokens": 715,
+      "median_seconds": 6.79,
+      "total_seconds": 20.0,
+      "cost": 0.0037
+    }
+  },
+  "per_question": {
+    "Q-01": {
+      "S1": true,
+      "S2": true,
+      "S3": true
+    },
+    "Q-03": {
+      "S1": true,
+      "S2": true,
+      "S3": true
+    },
+    "Q-09": {
+      "S1": true,
+      "S2": true,
+      "S3": true
+    }
+  }
+}
