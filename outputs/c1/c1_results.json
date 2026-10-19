@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Q-01",
+    "version": "mine",
+    "model_calls": 4,
+    "tool_calls": 7,
+    "tool_errors": 0,
+    "input_tokens": 4648,
+    "answer": "Ossbridge | 4.57",
+    "correct": true,
+    "lookup_inputs": [
+      "{\"district\": \"Ossbridge\", \"field\": \"population_2025\"}",
+      "{\"district\": \"Ossbridge\", \"field\": \"area_km2\"}",
+      "{\"district\": \"Ossford\", \"field\": \"population_2025\"}",
+      "{\"district\": \"Ossford\", \"field\": \"area_km2\"}"
+    ]
+  },
+  {
+    "question": "Q-01",
+    "version": "vague",
+    "model_calls": 4,
+    "tool_calls": 7,
+    "tool_errors": 0,
+    "input_tokens": 3688,
+    "answer": "Ossbridge | 4.57",
+    "correct": true,
+    "lookup_inputs": [
+      "{\"district\": \"Ossbridge\", \"field\": \"population_2025\"}",
+      "{\"district\": \"Ossbridge\", \"field\": \"area_km2\"}",
+      "{\"district\": \"Ossford\", \"field\": \"population_2025\"}",
+      "{\"district\": \"Ossford\", \"field\": \"area_km2\"}"
+    ]
+  },
+  {
+    "question": "Q-03",
+    "version": "mine",
+    "model_calls": 4,
+    "tool_calls": 7,
+    "tool_errors": 0,
+    "input_tokens": 4873,
+    "answer": "Lindenmoor | 5.34",
+    "correct": true,
+    "lookup_inputs": [
+      "{\"district\": \"Lindenmoor\", \"field\": \"water_use_2025_megalitres\"}",
+      "{\"district\": \"Lindenmoor\", \"field\": \"population_2025\"}",
+      "{\"district\": \"Kelmarsh\", \"field\": \"water_use_2025_megalitres\"}",
+      "{\"district\": \"Kelmarsh\", \"field\": \"population_2025\"}"
+    ]
+  },
+  {
+    "question": "Q-03",
+    "version": "vague",
+    "model_calls": 3,
+    "tool_calls": 5,
+    "tool_errors": 0,
+    "input_tokens": 2614,
+    "answer": "Lindenmoor | 5.34",
+    "correct": true,
+    "lookup_inputs": [
+      "{\"district\": \"Lindenmoor\", \"field\": \"water_use_2025_megalitres\"}",
+      "{\"district\": \"Lindenmoor\", \"field\": \"population_2025\"}",
+      "{\"district\": \"Kelmarsh\", \"field\": \"water_use_2025_megalitres\"}",
+      "{\"district\": \"Kelmarsh\", \"field\": \"population_2025\"}"
+    ]
+  },
+  {
+    "question": "Q-08",
+    "version": "mine",
+    "model_calls": 3,
+    "tool_calls": 4,
+    "tool_errors": 0,
+    "input_tokens": 3140,
+    "answer": "Brightwater | 72.456",
+    "correct": true,
+    "lookup_inputs": [
+      "{\"district\": \"Brightwater\", \"field\": \"water_use_2025_megalitres\"}",
+      "{\"district\": \"Millbrook\", \"field\": \"water_use_2025_megalitres\"}",
+      "{\"district\": \"Region\", \"field\": \"water_tariff_2025\"}"
+    ]
+  },
+  {
+    "question": "Q-08",
+    "version": "vague",
+    "model_calls": 3,
+    "tool_calls": 4,
+    "tool_errors": 0,
+    "input_tokens": 2420,
+    "answer": "Brightwater | 72.456",
+    "correct": true,
+    "lookup_inputs": [
+      "{\"district\": \"Brightwater\", \"field\": \"water_use_2025_megalitres\"}",
+      "{\"district\": \"Millbrook\", \"field\": \"water_use_2025_megalitres\"}",
+      "{\"district\": \"Region\", \"field\": \"water_tariff_2025\"}"
+    ]
+  },
+  {
+    "question": "Q-09",
+    "version": "mine",
+    "model_calls": 4,
+    "tool_calls": 7,
+    "tool_errors": 0,
+    "input_tokens": 4697,
+    "answer": "Millbrook | 0.556",
+    "correct": true,
+    "lookup_inputs": [
+      "{\"district\": \"Brightwater\", \"field\": \"population_2025\"}",
+      "{\"district\": \"Brightwater\", \"field\": \"area_km2\"}",
+      "{\"district\": \"Millbrook\", \"field\": \"population_2025\"}",
+      "{\"district\": \"Millbrook\", \"field\": \"area_km2\"}"
+    ]
+  },
+  {
+    "question": "Q-09",
+    "version": "vague",
+    "model_calls": 4,
+    "tool_calls": 7,
+    "tool_errors": 0,
+    "input_tokens": 3737,
+    "answer": "Millbrook | 0.556",
+    "correct": true,
+    "lookup_inputs": [
+      "{\"district\": \"Brightwater\", \"field\": \"population_2025\"}",
+      "{\"district\": \"Brightwater\", \"field\": \"area_km2\"}",
+      "{\"district\": \"Millbrook\", \"field\": \"population_2025\"}",
+      "{\"district\": \"Millbrook\", \"field\": \"area_km2\"}"
+    ]
+  },
+  {
+    "question": "Q-17",
+    "version": "mine",
+    "model_calls": 4,
+    "tool_calls": 8,
+    "tool_errors": 0,
+    "input_tokens": 5158,
+    "answer": "Harrowfield | 884.457",
+    "correct": true,
+    "lookup_inputs": [
+      "{\"district\": \"Region\", \"field\": \"water_tariff_2025\"}",
+      "{\"district\": \"Harrowfield\", \"field\": \"water_use_2025_megalitres\"}",
+      "{\"district\": \"Harrowfield\", \"field\": \"population_2025\"}",
+      "{\"district\": \"Ossbridge\", \"field\": \"water_use_2025_megalitres\"}",
+      "{\"district\": \"Ossbridge\", \"field\": \"population_2025\"}"
+    ]
+  },
+  {
+    "question": "Q-17",
+    "version": "vague",
+    "model_calls": 3,
+    "tool_calls": 6,
+    "tool_errors": 0,
+    "input_tokens": 2810,
+    "answer": "Harrowfield | 884.457",
+    "correct": true,
+    "lookup_inputs": [
+      "{\"district\": \"Region\", \"field\": \"water_tariff_2025\"}",
+      "{\"district\": \"Harrowfield\", \"field\": \"water_use_2025_megalitres\"}",
+      "{\"district\": \"Harrowfield\", \"field\": \"population_2025\"}",
+      "{\"district\": \"Ossbridge\", \"field\": \"water_use_2025_megalitres\"}",
+      "{\"district\": \"Ossbridge\", \"field\": \"population_2025\"}"
+    ]
+  }
+]

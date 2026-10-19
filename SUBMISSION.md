@@ -384,9 +384,29 @@ Full tables for both runs are in `outputs/run1/summary.md` and `outputs/run2/sum
 
 ### C1 — Does the tool description matter?
 
+I ran S3 again on 5 questions: Q-01 (Ossbridge/Ossford), Q-03 (Lindenmoor cubic metres), Q-08 (water price), Q-09 (correction NR-16) and Q-17 (water price per resident). I chose them because my `lookup` description gives a hint for each of them. I ran both versions at the same time (`run_c1.py`, logs in `outputs/c1/logs/`). In the vague version only the `lookup` description is changed to `"Looks things up."`, the parameters and the `calculate` tool are the same.
+
 | Question | Calls (your description) | Calls (vague) | Answer (yours) | Answer (vague) |
 |---|---:|---:|---|---|
-| | | | | |
+| Q-01 | 7 tool calls, 4 model calls | 7 tool calls, 4 model calls | Ossbridge \| 4.57 ✓ | Ossbridge \| 4.57 ✓ |
+| Q-03 | 7 tool calls, 4 model calls | 5 tool calls, 3 model calls | Lindenmoor \| 5.34 ✓ | Lindenmoor \| 5.34 ✓ |
+| Q-08 | 4 tool calls, 3 model calls | 4 tool calls, 3 model calls | Brightwater \| 72.456 ✓ | Brightwater \| 72.456 ✓ |
+| Q-09 | 7 tool calls, 4 model calls | 7 tool calls, 4 model calls | Millbrook \| 0.556 ✓ | Millbrook \| 0.556 ✓ |
+| Q-17 | 8 tool calls, 4 model calls | 6 tool calls, 3 model calls | Harrowfield \| 884.457 ✓ | Harrowfield \| 884.457 ✓ |
+
+**What changed:**
+- The answers did not change, all 10 are correct, and no tool returned an error.
+- The inputs to `lookup` were exactly the same in both versions, for all 5 questions. Even for Q-08 the vague version asked `{"district": "Region", "field": "water_tariff_2025"}` at once.
+- The vague version used fewer input tokens every time. For Q-01 and Q-09 the number of model calls was the same (4), and the difference was 960 tokens, so my long description costs about 240 tokens in every model call.
+- For Q-03 and Q-17 the vague version needed 1 round and 2 `calculate` calls less (it wrote the formula in fewer steps). With only one run I can not say if this is because of the description or just random.
+
+**Why:**
+Before the run I expected that with the vague description the model would not know how to ask for the water price (Q-08, Q-17) and would make wrong calls. This did not happen. The reason is that the task said to change only the description, and a lot of information is also in the parameters:
+- the `district` parameter has its own description that says to use `"Region"` for `water_tariff_2025`;
+- the `field` parameter is an `enum`, so the model sees the exact list of facts and their units (`water_use_2025_megalitres`, `water_tariff_2025`).
+Also my `lookup` handles the traps (archived profiles, NR-16, cubic metres) in code, so the model does not need to know about them. The text about the traps in my description was information, not something the model needs to get the right answer.
+
+So in my design the description matters less than I thought, because the parameter schema already explains how to use the tool. The description still has a cost: about 240 tokens in every S3 request. I think the description would matter much more if `field` was a free string without `enum`, or if `lookup` did not handle the traps by itself.
 
 ### C2 — Three mistakes explained
 

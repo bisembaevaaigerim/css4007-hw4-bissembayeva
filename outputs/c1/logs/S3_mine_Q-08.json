@@ -1,0 +1,178 @@
+{
+  "question_id": "Q-08",
+  "question": "At the 2025 household water tariff, whose households paid more for water in 2025, Brightwater's or Millbrook's, and by how many million tenge?",
+  "model": "gpt-5.6-luna",
+  "rounds": [
+    {
+      "round": 1,
+      "input_tokens": 756,
+      "output_tokens": 93,
+      "model_text": null,
+      "tool_calls": [
+        {
+          "id": "call_EhwTHSl3sbb1p10pohD9jXRc",
+          "tool": "lookup",
+          "arguments": "{\"district\": \"Brightwater\", \"field\": \"water_use_2025_megalitres\"}",
+          "result": {
+            "district": "Brightwater",
+            "field": "water_use_2025_megalitres",
+            "value": 3315,
+            "unit": "megalitres",
+            "source": "NR-05",
+            "corrected_by": null,
+            "note": "",
+            "evidence": "Households used 3,315 megalitres of water during 2025, and the district's 2025 budget amounted to 7,733.9 million tenge."
+          },
+          "seconds": 0.0
+        },
+        {
+          "id": "call_xaI6tvFRrskPwfHoQ0QHX9nB",
+          "tool": "lookup",
+          "arguments": "{\"district\": \"Millbrook\", \"field\": \"water_use_2025_megalitres\"}",
+          "result": {
+            "district": "Millbrook",
+            "field": "water_use_2025_megalitres",
+            "value": 2806,
+            "unit": "megalitres",
+            "source": "NR-11",
+            "corrected_by": null,
+            "note": "",
+            "evidence": "Households used 2,806 megalitres of water during 2025, and the district's 2025 budget amounted to 6,305.7 million tenge."
+          },
+          "seconds": 0.0
+        },
+        {
+          "id": "call_PvjYplSqPWaRY5RVKoYw7q2H",
+          "tool": "lookup",
+          "arguments": "{\"district\": \"Region\", \"field\": \"water_tariff_2025\"}",
+          "result": {
+            "district": "Region",
+            "field": "water_tariff_2025",
+            "value": 142.35,
+            "unit": "tenge per m3",
+            "source": "NR-15",
+            "corrected_by": null,
+            "note": "the same in every district",
+            "evidence": "From 1 January 2025 the regional household water tariff is 142.35 tenge per cubic metre, in every district."
+          },
+          "seconds": 0.0
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "input_tokens": 1156,
+      "output_tokens": 32,
+      "model_text": null,
+      "tool_calls": [
+        {
+          "id": "call_EfOjEQohzdmspzsiuj0U2LLj",
+          "tool": "calculate",
+          "arguments": "{\"expression\":\"(3315 - 2806) * 142.35 / 1000\"}",
+          "result": {
+            "expression": "(3315 - 2806) * 142.35 / 1000",
+            "result": 72.45615
+          },
+          "seconds": 0.0
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "input_tokens": 1228,
+      "output_tokens": 28,
+      "model_text": "Brightwater's households paid more, by 72.456 million tenge.\n\nANSWER: Brightwater | 72.456",
+      "tool_calls": []
+    }
+  ],
+  "result": {
+    "question_id": "Q-08",
+    "final_text": "Brightwater's households paid more, by 72.456 million tenge.\n\nANSWER: Brightwater | 72.456",
+    "answer_name": "Brightwater",
+    "answer_number": 72.456,
+    "unanswered": false,
+    "model_calls": 3,
+    "tool_calls": 4,
+    "input_tokens": 3140,
+    "output_tokens": 153,
+    "seconds": 3.841
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You answer questions about the Nine Rivers Region, a made-up place. You do not have the documents. Get every fact with the lookup tool and do every calculation with the calculate tool.\nEnd your reply with exactly one line in this format:\nANSWER: <district name or yes/no> | <number>\nWrite the number with 3 decimals, no units and no commas, for example: ANSWER: Millbrook | 0.556"
+    },
+    {
+      "role": "user",
+      "content": "At the 2025 household water tariff, whose households paid more for water in 2025, Brightwater's or Millbrook's, and by how many million tenge?"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_EhwTHSl3sbb1p10pohD9jXRc",
+          "function": {
+            "arguments": "{\"district\": \"Brightwater\", \"field\": \"water_use_2025_megalitres\"}",
+            "name": "lookup"
+          },
+          "type": "function"
+        },
+        {
+          "id": "call_xaI6tvFRrskPwfHoQ0QHX9nB",
+          "function": {
+            "arguments": "{\"district\": \"Millbrook\", \"field\": \"water_use_2025_megalitres\"}",
+            "name": "lookup"
+          },
+          "type": "function"
+        },
+        {
+          "id": "call_PvjYplSqPWaRY5RVKoYw7q2H",
+          "function": {
+            "arguments": "{\"district\": \"Region\", \"field\": \"water_tariff_2025\"}",
+            "name": "lookup"
+          },
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_EhwTHSl3sbb1p10pohD9jXRc",
+      "content": "{\"district\": \"Brightwater\", \"field\": \"water_use_2025_megalitres\", \"value\": 3315, \"unit\": \"megalitres\", \"source\": \"NR-05\", \"corrected_by\": null, \"note\": \"\", \"evidence\": \"Households used 3,315 megalitres of water during 2025, and the district's 2025 budget amounted to 7,733.9 million tenge.\"}"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_xaI6tvFRrskPwfHoQ0QHX9nB",
+      "content": "{\"district\": \"Millbrook\", \"field\": \"water_use_2025_megalitres\", \"value\": 2806, \"unit\": \"megalitres\", \"source\": \"NR-11\", \"corrected_by\": null, \"note\": \"\", \"evidence\": \"Households used 2,806 megalitres of water during 2025, and the district's 2025 budget amounted to 6,305.7 million tenge.\"}"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_PvjYplSqPWaRY5RVKoYw7q2H",
+      "content": "{\"district\": \"Region\", \"field\": \"water_tariff_2025\", \"value\": 142.35, \"unit\": \"tenge per m3\", \"source\": \"NR-15\", \"corrected_by\": null, \"note\": \"the same in every district\", \"evidence\": \"From 1 January 2025 the regional household water tariff is 142.35 tenge per cubic metre, in every district.\"}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_EfOjEQohzdmspzsiuj0U2LLj",
+          "function": {
+            "arguments": "{\"expression\":\"(3315 - 2806) * 142.35 / 1000\"}",
+            "name": "calculate"
+          },
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_EfOjEQohzdmspzsiuj0U2LLj",
+      "content": "{\"expression\": \"(3315 - 2806) * 142.35 / 1000\", \"result\": 72.45615}"
+    },
+    {
+      "role": "assistant",
+      "content": "Brightwater's households paid more, by 72.456 million tenge.\n\nANSWER: Brightwater | 72.456"
+    }
+  ]
+}
