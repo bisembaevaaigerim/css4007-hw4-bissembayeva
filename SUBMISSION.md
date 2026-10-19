@@ -322,6 +322,10 @@ tests/test_tools.py::test_lookup_bad_input_does_not_crash PASSED                
 <!-- model, temperature, k, prompts, answer format, anything else -->
 
 **My rule for a correct answer** (written before the first full run):
+- The model must end with the line `ANSWER: <name or yes/no> | <number>`. My code takes the last such line. If there is no such line, the question is unanswered (and wrong).
+- The name must be the same as `answer` (big/small letters do not matter).
+- The number is rounded to the question's `decimals` and must be equal to `value`; a difference of 1 in the last digit is allowed (for example for Q-09, `decimals` = 1, so 0.5, 0.6 and 0.7 are counted as correct).
+- For S2 I first take the most common (name, number) pair of the 5 answers and then check it with the same rule.
 
 | Run | Strategy | Correct /20 | Unanswered | Input tokens | Output tokens | Median seconds per question | Total seconds | Cost ($) |
 |---|---|---:|---:|---:|---:|---:|---:|---:|

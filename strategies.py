@@ -14,6 +14,8 @@ client = OpenAI()
 MODEL = "gpt-5.6-luna"
 MAX_ROUNDS = 8              
 REASONING_EFFORT = "none"
+K_SAMPLES = 5             
+S2_TEMPERATURE = 1.0    
 
 ANSWER_RULE = (
     "End your reply with exactly one line in this format:\n"
@@ -96,6 +98,23 @@ S3_SYSTEM = (
     "and do every calculation with the calculate tool.\n" + ANSWER_RULE
 )
 
+def documents_text():
+    parts = []
+    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "corpus.jsonl"), encoding="utf-8") as f:
+        for line in f:
+            if line.strip() != "":
+                doc = json.loads(line)
+                parts.append("[" + doc["id"] + "] " + doc["title"] + "\n" + doc["text"])
+    return "\n\n".join(parts)
+
+
+DOCS_SYSTEM = (
+    "You answer questions about the Nine Rivers Region, a made-up place. "
+    "Use only the documents below.\n" + ANSWER_RULE + "\n\nDOCUMENTS:\n\n" + documents_text()
+)
+
+S2_THINK = "Think step by step: write down every fact you use with its document id, then do the calculation, then give the answer."
+
 def find_answer(text):
     if text is None:
         return None, None
@@ -138,7 +157,7 @@ def save_log(strategy, question_id, log, folder="outputs/logs"):
 
 
 
-def s3_tools(question, question_id, tool_list=TOOLS, log_name="S3"):
+def s3_tools(question, question_id, tool_list=TOOLS, log_name="S3", log_folder="outputs/logs"):
     messages = [
         {"role": "system", "content": S3_SYSTEM},
         {"role": "user", "content": question},
@@ -216,5 +235,117 @@ def s3_tools(question, question_id, tool_list=TOOLS, log_name="S3"):
 
     log["result"] = result
     log["messages"] = messages
-    save_log(log_name, question_id, log)
+    save_log(log_name, question_id, log, log_folder)
+    return result
+
+# ---------- S1: direct ----------
+
+def s1_direct(question, question_id, log_folder="outputs/logs"):
+    messages = [
+        {"role": "system", "content": DOCS_SYSTEM},
+        {"role": "user", "content": question},
+    ]
+    start = time.time()
+    response = client.chat.completions.create(
+        model=MODEL,
+        messages=messages,
+        reasoning_effort=REASONING_EFFORT,
+    )
+    seconds = time.time() - start
+    text = response.choices[0].message.content
+    name, number = find_answer(text)
+
+    result = {
+        "question_id": question_id,
+        "final_text": text,
+        "answer_name": name,
+        "answer_number": number,
+        "unanswered": name is None,
+        "model_calls": 1,
+        "input_tokens": response.usage.prompt_tokens,
+        "output_tokens": response.usage.completion_tokens,
+        "seconds": round(seconds, 3),
+    }
+    # the documents are the same for every question, so I do not save them in every log
+    save_log("S1", question_id, {"question_id": question_id, "question": question, "model": MODEL,
+                                 "result": result}, log_folder)
+    return result
+
+
+# ---------- S2: think step by step and vote ----------
+
+def s2_vote(question, question_id, log_folder="outputs/logs"):
+    messages = [
+        {"role": "system", "content": DOCS_SYSTEM},
+        {"role": "user", "content": question + "\n\n" + S2_THINK},
+    ]
+    samples = []
+    input_tokens = 0
+    output_tokens = 0
+    start = time.time()
+    temperature_used = S2_TEMPERATURE
+
+    for i in range(K_SAMPLES):
+        sample_start = time.time()
+        settings = {"model": MODEL, "messages": messages, "reasoning_effort": REASONING_EFFORT}
+        if temperature_used is not None:
+            settings["temperature"] = temperature_used
+        try:
+            response = client.chat.completions.create(**settings)
+        except Exception as e:
+            # if the model does not allow temperature, ask again without it (this is saved in the log)
+            if temperature_used is not None and "temperature" in str(e):
+                temperature_used = None
+                del settings["temperature"]
+                response = client.chat.completions.create(**settings)
+            else:
+                raise
+        input_tokens += response.usage.prompt_tokens
+        output_tokens += response.usage.completion_tokens
+        text = response.choices[0].message.content
+        name, number = find_answer(text)
+        samples.append({
+            "sample": i + 1,
+            "answer_name": name,
+            "answer_number": number,
+            "input_tokens": response.usage.prompt_tokens,
+            "output_tokens": response.usage.completion_tokens,
+            "seconds": round(time.time() - sample_start, 3),
+            "text": text,
+        })
+
+    # vote: count the same (name, number) pairs. Samples without an ANSWER line do not vote.
+    votes = {}
+    for s in samples:
+        if s["answer_name"] is None or s["answer_number"] is None:
+            continue
+        key = (s["answer_name"].lower(), round(s["answer_number"], 3))
+        if key not in votes:
+            votes[key] = {"count": 0, "name": s["answer_name"], "number": s["answer_number"]}
+        votes[key]["count"] += 1
+
+    name = None
+    number = None
+    best = 0
+    for key in votes:                      # if two answers have the same count, the first one wins
+        if votes[key]["count"] > best:
+            best = votes[key]["count"]
+            name = votes[key]["name"]
+            number = votes[key]["number"]
+
+    result = {
+        "question_id": question_id,
+        "answer_name": name,
+        "answer_number": number,
+        "votes": str(best) + " of " + str(K_SAMPLES),
+        "all_answers": [str(s["answer_name"]) + " | " + str(s["answer_number"]) for s in samples],
+        "unanswered": name is None,
+        "model_calls": K_SAMPLES,
+        "temperature": temperature_used,
+        "input_tokens": input_tokens,
+        "output_tokens": output_tokens,
+        "seconds": round(time.time() - start, 3),
+    }
+    save_log("S2", question_id, {"question_id": question_id, "question": question, "model": MODEL,
+                                 "result": result, "samples": samples}, log_folder)
     return result
