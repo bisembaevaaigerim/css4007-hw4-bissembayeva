@@ -61,29 +61,102 @@ In S3 the model does not see the documents and it does not do the maths by itsel
 
 ### A2 — The two tools
 
+I decided that `lookup` takes one district and one field and gives back one number.
+I did not choose a search tool that returns sentences, because then the model must find
+the archived profiles, the correction and the units by itself, and this is where it makes mistakes.
+With my design all traps are handled inside the tool and the model gets a clean number with its source.
+
 #### `lookup`
 
 ```json
+{
+  "type": "function",
+  "function": {
+    "name": "lookup",
+    "description": "Get ONE fact about ONE district of the Nine Rivers Region from the official 2025 profiles. Call it once for every number you need (for example, 2 districts x 2 fields = 4 calls). The 12 districts are: Ossbridge, Ossford, Tarnvale, Kelmarsh, Brightwater, Stonecairn, Harrowfield, Lindenmoor, Redfen, Ashgrove, Millbrook, Coldharbour. Be careful: Ossbridge and Ossford are different districts. The tool already skips old ARCHIVED profiles, applies correction notices and converts units, so the value you get is the one to use. Water use is always in megalitres. For the water price use district \"Region\" and field \"water_tariff_2025\". The result has the value, the unit, the source document id and the sentence the value came from. If the result has an \"error\" key, read it, fix your input and try again. Do not do maths yourself, use the calculate tool.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "district": {
+          "type": "string",
+          "description": "Exact district name, for example \"Brightwater\". Use \"Region\" only for water_tariff_2025."
+        },
+        "field": {
+          "type": "string",
+          "enum": [
+            "population_2025",
+            "population_2020",
+            "area_km2",
+            "budget_2025_million_tenge",
+            "water_use_2025_megalitres",
+            "schools",
+            "pupils_2025_26",
+            "paved_road_km",
+            "founded_year",
+            "water_tariff_2025"
+          ],
+          "description": "Which fact you need."
+        }
+      },
+      "required": ["district", "field"],
+      "additionalProperties": false
+    }
+  }
+}
 ```
 
 | Case | What the tool returns |
 |---|---|
-| success | |
-| | |
+| success | `{"district": "Brightwater", "field": "area_km2", "value": 921.4, "unit": "km2", "source": "NR-05", "corrected_by": "NR-16", "note": "NR-16 corrects 912.4 to 921.4", "evidence": "The district, founded in 1889, stretches along the Bright over 912.4 square kilometres and keeps 455.0 km of paved road."}` |
+| success with unit change (Lindenmoor water) | `{..., "value": 2151.4, "unit": "megalitres", "source": "NR-08", "corrected_by": null, "note": "changed from 2151400 cubic metres", ...}` |
+| district with a typo (`"Ossbrige"`) | `{"error": "no district named Ossbrige; did you mean Ossbridge or Ossford?"}` |
+| name that fits 2 districts (`"Oss"`) | `{"error": "Oss is not a full district name; did you mean Ossbridge or Ossford?"}` |
+| empty district or district longer than 50 characters | `{"error": "district must be a district name, for example Brightwater"}` |
+| field not in the list | `{"error": "unknown field density; allowed fields are: population_2025, population_2020, ..."}` |
+| district has only archived profiles | `{"error": "no current profile for X; archived profiles are not used"}` (does not happen in our data, Tarnvale and Kelmarsh also have 2025 profiles, so the tool returns NR-03 and NR-04, never NR-13 or NR-14) |
+| field not found in the profile text | `{"error": "field schools not found in NR-xx"}` |
+| `"Region"` used with a field that is not the tariff | `{"error": "Region can only be used with water_tariff_2025"}` |
+| unknown unit | `{"error": "unknown unit for water_use_2025_megalitres in NR-xx"}` |
 
 **Worst thing it could do with strange or dangerous input:**
+If my pattern for a field is wrong, lookup can return a wrong number (for example the 2020 population instead of 2025) with no error. The model will trust it and the answer will be wrong. This is why the result has the evidence sentence and why I test step 5 the most.
 
 #### `calculate`
 
 ```json
+{
+  "type": "function",
+  "function": {
+    "name": "calculate",
+    "description": "Calculate an arithmetic expression exactly. Use it for EVERY calculation (divisions, differences, percentages, unit changes), never do maths in your head. Only numbers, + - * / ** and brackets are allowed, for example \"(52904 - 48317) / 48317 * 100\". Do not use commas inside numbers (write 1284.6, not 1,284.6). No variables, no functions, no text. The result is a number with full precision, do not round it before the final answer. If the result has an \"error\" key, fix the expression and try again.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "expression": {
+          "type": "string",
+          "description": "Arithmetic expression, for example \"44675 / 921.4\"."
+        }
+      },
+      "required": ["expression"],
+      "additionalProperties": false
+    }
+  }
+}
 ```
 
 | Case | What the tool returns |
 |---|---|
-| success | |
-| | |
+| success | `{"expression": "44675 / 921.4", "result": 48.48599956587801}` |
+| empty expression or longer than 200 characters | `{"error": "expression must be 1 to 200 characters"}` |
+| wrong syntax (`"44675 //// 9"`) | `{"error": "invalid syntax"}` |
+| something that is not allowed: names, function calls, attributes, strings (`"__import__('os').system('echo hi')"`, `"(1).__class__"`) | `{"error": "not allowed: only numbers, + - * / ** and brackets"}` (nothing is run, the expression is only read with `ast.parse`) |
+| division by zero | `{"error": "division by zero"}` |
+| too big power (`"9**9**9"`) | `{"error": "number too large: exponent must be between -10 and 10"}` (checked before the power is calculated, so it does not freeze) |
+| result too big | `{"error": "number too large: result is bigger than 1e15"}` |
+| too many brackets inside each other | `{"error": "expression too complex"}` |
 
 **Worst thing it could do with strange or dangerous input:**
+If I used `eval`, the model could run any Python code on my computer, for example delete files with `__import__('os')`. My `calculate` does not use `eval`. It reads the expression with `ast.parse` and only accepts numbers, the operators `+ - * / **` and brackets. Everything else is rejected before anything is calculated. The worst thing that is still possible is a very slow calculation like `9**9**9`, which can freeze the program. I block it by checking the exponent before I calculate it, by limiting the result size and by limiting the length of the expression. The model can still send a wrong formula, but then the tool gives the correct result of a wrong formula. It can not fix the model's logic.
 
 ### A3 — Q-09 by hand
 
