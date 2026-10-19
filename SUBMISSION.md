@@ -1,6 +1,8 @@
 # HW4 — submission
 
-**AI assistance:** <!-- what you used, and for what. "None" is an answer too. -->
+**AI assistance:** I used Claude (Anthropic) as a helper during the whole homework: to understand the task, to plan the steps of Part A, to help check the code (tools, tests, loop, run scripts).
+
+I ran all the code and all the API calls myself, and all numbers and logs in this file come from my own runs in `outputs/`.
 
 ---
 
