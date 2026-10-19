@@ -307,9 +307,13 @@ tests/test_tools.py::test_lookup_bad_input_does_not_crash PASSED                
 
 ### B3 — The loop
 
-- Round limit, and why:
-- Where the logs are:
+- Round limit, and why: 8 rounds. A normal question needs about 3-4 rounds (facts, then maths, then the answer). Questions with 3 districts (Q-11, Q-13, Q-20) can need 1 more round, and I leave space for 1-2 retries after an error (for example a wrong district name). If the model needs more than 8 rounds it is probably stuck in a loop. Also every round costs more than the one before, because the whole conversation is sent again. If the limit is reached, the question is marked as unanswered.
+- Where the logs are: `outputs/logs/S3_<question id>.json`. Every log has every round with its input and output tokens, every tool call (id, tool, arguments, result, seconds) and the full message list.
 - Real Q-09 conversation compared with my A3 version, what is different:
+  - Round 1 is the same as my plan: 4 `lookup` calls at the same time with the same districts and fields. `lookup` returned Brightwater area 921.4 with `corrected_by: NR-16`, so the trap worked as planned.
+  - I expected 3 model calls, the real run used 4. I planned 3 `calculate` calls in one round. The model first asked for the 2 densities, and only after it saw them it asked for the difference in a new round. So the model works step by step and looks at the results before it plans the next step.
+  - The number of tool calls is the same (7), and the answer is the same: `Millbrook | 0.556` (0.6 after rounding, correct).
+  - Input tokens grew every round: 748, 1212, 1331, 1406. The extra round cost 1406 more input tokens.
 
 ### B4 — Three strategies
 
