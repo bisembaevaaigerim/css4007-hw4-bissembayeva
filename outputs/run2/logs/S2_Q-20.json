@@ -1,0 +1,71 @@
+{
+  "question_id": "Q-20",
+  "question": "Of Ossbridge, Ashgrove and Harrowfield, which district had the largest 2025 budget per resident, and by how many tenge per resident did it exceed the lowest of the three?",
+  "model": "gpt-5.6-luna",
+  "result": {
+    "question_id": "Q-20",
+    "answer_name": "Ashgrove",
+    "answer_number": 2993.333,
+    "votes": "1 of 5",
+    "all_answers": [
+      "Ashgrove | 2993.333",
+      "Ashgrove | 3003.438",
+      "Ashgrove | 2996.643",
+      "Ashgrove | 3000.336",
+      "Ashgrove | 2996.994"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11140,
+    "output_tokens": 1279,
+    "seconds": 12.837
+  },
+  "samples": [
+    {
+      "sample": 1,
+      "answer_name": "Ashgrove",
+      "answer_number": 2993.333,
+      "input_tokens": 2228,
+      "output_tokens": 256,
+      "seconds": 2.558,
+      "text": "Facts used:\n- Ossbridge’s 2025 budget was 9,284.5 million tenge and its 2025 population was 52,904 (NR-01).\n- Ashgrove’s 2025 budget was 10,488.1 million tenge and its 2025 population was 58,760 (NR-10).\n- Harrowfield’s 2025 budget was 16,021.7 million tenge and its 2025 population was 90,212 (NR-07).\n\nCalculation:\n- Ossbridge: 9,284,500,000 ÷ 52,904 = 175,494.754 tenge per resident.\n- Ashgrove: 10,488,100,000 ÷ 58,760 = 178,488.087 tenge per resident.\n- Harrowfield: 16,021,700,000 ÷ 90,212 = 177,586.291 tenge per resident.\n- Largest: Ashgrove.\n- Difference from the lowest, Ossbridge: 178,488.087 − 175,494.754 = 2,993.333 tenge per resident.\n\nANSWER: Ashgrove | 2993.333"
+    },
+    {
+      "sample": 2,
+      "answer_name": "Ashgrove",
+      "answer_number": 3003.438,
+      "input_tokens": 2228,
+      "output_tokens": 256,
+      "seconds": 2.415,
+      "text": "Facts used:\n- Ossbridge’s 2025 budget was 9,284.5 million tenge and its 2025 population was 52,904 (NR-01).\n- Ashgrove’s 2025 budget was 10,488.1 million tenge and its 2025 population was 58,760 (NR-10).\n- Harrowfield’s 2025 budget was 16,021.7 million tenge and its 2025 population was 90,212 (NR-07).\n\nCalculation:\n- Ossbridge: 9,284,500,000 ÷ 52,904 = 175,488.053 tenge per resident.\n- Ashgrove: 10,488,100,000 ÷ 58,760 = 178,491.491 tenge per resident.\n- Harrowfield: 16,021,700,000 ÷ 90,212 = 177,596.097 tenge per resident.\n- Largest: Ashgrove.\n- Difference from the lowest, Ossbridge: 178,491.491 − 175,488.053 = 3,003.438 tenge per resident.\n\nANSWER: Ashgrove | 3003.438"
+    },
+    {
+      "sample": 3,
+      "answer_name": "Ashgrove",
+      "answer_number": 2996.643,
+      "input_tokens": 2228,
+      "output_tokens": 251,
+      "seconds": 2.606,
+      "text": "Facts used:\n- Ossbridge’s 2025 budget was 9,284.5 million tenge and its 2025 population was 52,904. [NR-01]\n- Ashgrove’s 2025 budget was 10,488.1 million tenge and its 2025 population was 58,760. [NR-10]\n- Harrowfield’s 2025 budget was 16,021.7 million tenge and its 2025 population was 90,212. [NR-07]\n\nCalculation:\n- Ossbridge: 9,284,500,000 ÷ 52,904 = 175,493.146 tenge per resident\n- Ashgrove: 10,488,100,000 ÷ 58,760 = 178,489.789 tenge per resident\n- Harrowfield: 16,021,700,000 ÷ 90,212 = 177,604.301 tenge per resident\n- Difference between the highest and lowest: 178,489.789 − 175,493.146 = 2,996.643 tenge per resident\n\nANSWER: Ashgrove | 2996.643"
+    },
+    {
+      "sample": 4,
+      "answer_name": "Ashgrove",
+      "answer_number": 3000.336,
+      "input_tokens": 2228,
+      "output_tokens": 254,
+      "seconds": 2.625,
+      "text": "Facts used:\n- Ossbridge’s 2025 budget was 9,284.5 million tenge and its 2025 population was 52,904 residents. [NR-01]\n- Ashgrove’s 2025 budget was 10,488.1 million tenge and its 2025 population was 58,760 residents. [NR-10]\n- Harrowfield’s 2025 budget was 16,021.7 million tenge and its 2025 population was 90,212 residents. [NR-07]\n\nCalculation:\n- Ossbridge: 9,284,500,000 ÷ 52,904 = 175,488.432 tenge per resident\n- Ashgrove: 10,488,100,000 ÷ 58,760 = 178,488.768 tenge per resident\n- Harrowfield: 16,021,700,000 ÷ 90,212 = 177,594.645 tenge per resident\n- Difference between the highest and lowest: 178,488.768 − 175,488.432 = 3,000.336 tenge per resident\n\nANSWER: Ashgrove | 3000.336"
+    },
+    {
+      "sample": 5,
+      "answer_name": "Ashgrove",
+      "answer_number": 2996.994,
+      "input_tokens": 2228,
+      "output_tokens": 262,
+      "seconds": 2.634,
+      "text": "Facts used:\n- Ossbridge’s 2025 budget was 9,284.5 million tenge and its 2025 population was 52,904 residents. [NR-01]\n- Ashgrove’s 2025 budget was 10,488.1 million tenge and its 2025 population was 58,760 residents. [NR-10]\n- Harrowfield’s 2025 budget was 16,021.7 million tenge and its 2025 population was 90,212 residents. [NR-07]\n\nCalculation:\n- Ossbridge: 9,284,500,000 ÷ 52,904 = 175,494.667 tenge per resident.\n- Ashgrove: 10,488,100,000 ÷ 58,760 = 178,491.661 tenge per resident.\n- Harrowfield: 16,021,700,000 ÷ 90,212 = 177,598.543 tenge per resident.\n- Largest: Ashgrove.\n- Difference from the lowest, Ossbridge: 178,491.661 − 175,494.667 = 2,996.994 tenge per resident.\n\nANSWER: Ashgrove | 2996.994"
+    }
+  ]
+}

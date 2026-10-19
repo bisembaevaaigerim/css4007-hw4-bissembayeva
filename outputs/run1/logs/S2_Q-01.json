@@ -1,0 +1,71 @@
+{
+  "question_id": "Q-01",
+  "question": "Which district has the higher population density in 2025, Ossbridge or Ossford, and by how many residents per square kilometre?",
+  "model": "gpt-5.6-luna",
+  "result": {
+    "question_id": "Q-01",
+    "answer_name": "Ossbridge",
+    "answer_number": 4.569,
+    "votes": "3 of 5",
+    "all_answers": [
+      "Ossbridge | 4.569",
+      "Ossbridge | 4.569",
+      "Ossbridge | 4.57",
+      "Ossbridge | 4.566",
+      "Ossbridge | 4.569"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11075,
+    "output_tokens": 849,
+    "seconds": 11.159
+  },
+  "samples": [
+    {
+      "sample": 1,
+      "answer_name": "Ossbridge",
+      "answer_number": 4.569,
+      "input_tokens": 2215,
+      "output_tokens": 172,
+      "seconds": 2.526,
+      "text": "Facts used:\n- Ossbridge’s 2025 population was 52,904 residents; its area is 1,284.6 km². [NR-01]\n- Ossford’s 2025 population was 30,982 residents; its area is 846.2 km². [NR-02]\n\nCalculation:\n- Ossbridge density = 52,904 ÷ 1,284.6 = 41.184 residents/km².\n- Ossford density = 30,982 ÷ 846.2 = 36.615 residents/km².\n- Difference = 41.184 − 36.615 = 4.569 residents/km².\n\nOssbridge has the higher 2025 population density by 4.569 residents per square kilometre.\n\nANSWER: Ossbridge | 4.569"
+    },
+    {
+      "sample": 2,
+      "answer_name": "Ossbridge",
+      "answer_number": 4.569,
+      "input_tokens": 2215,
+      "output_tokens": 171,
+      "seconds": 2.176,
+      "text": "Facts used:\n- Ossbridge’s 2025 population was 52,904 and its area was 1,284.6 km². [NR-01]\n- Ossford’s 2025 population was 30,982 and its area was 846.2 km². [NR-02]\n\nCalculations:\n- Ossbridge density = 52,904 ÷ 1,284.6 = 41.185 residents/km².\n- Ossford density = 30,982 ÷ 846.2 = 36.616 residents/km².\n- Difference = 41.185 − 36.616 = 4.569 residents/km².\n\nOssbridge has the higher 2025 population density by 4.569 residents per square kilometre.\n\nANSWER: Ossbridge | 4.569"
+    },
+    {
+      "sample": 3,
+      "answer_name": "Ossbridge",
+      "answer_number": 4.57,
+      "input_tokens": 2215,
+      "output_tokens": 168,
+      "seconds": 2.051,
+      "text": "Facts used:\n- Ossbridge’s 2025 population is 52,904 and its area is 1,284.6 km². [NR-01]\n- Ossford’s 2025 population is 30,982 and its area is 846.2 km². [NR-02]\n\nCalculations:\n- Ossbridge density = 52,904 ÷ 1,284.6 = 41.184 residents/km².\n- Ossford density = 30,982 ÷ 846.2 = 36.614 residents/km².\n- Difference = 41.184 − 36.614 = 4.570 residents/km².\n\nOssbridge has the higher population density by 4.570 residents per square kilometre.\n\nANSWER: Ossbridge | 4.570"
+    },
+    {
+      "sample": 4,
+      "answer_name": "Ossbridge",
+      "answer_number": 4.566,
+      "input_tokens": 2215,
+      "output_tokens": 168,
+      "seconds": 2.35,
+      "text": "Facts used:\n- Ossbridge’s 2025 population is 52,904 and its area is 1,284.6 km². [NR-01]\n- Ossford’s 2025 population is 30,982 and its area is 846.2 km². [NR-02]\n\nCalculations:\n- Ossbridge density = 52,904 ÷ 1,284.6 = 41.183 residents/km².\n- Ossford density = 30,982 ÷ 846.2 = 36.617 residents/km².\n- Difference = 41.183 − 36.617 = 4.566 residents/km².\n\nOssbridge has the higher population density by 4.566 residents per square kilometre.\n\nANSWER: Ossbridge | 4.566"
+    },
+    {
+      "sample": 5,
+      "answer_name": "Ossbridge",
+      "answer_number": 4.569,
+      "input_tokens": 2215,
+      "output_tokens": 170,
+      "seconds": 2.056,
+      "text": "Facts used:\n- Ossbridge’s 2025 population was 52,904 and its area was 1,284.6 km². [NR-01]\n- Ossford’s 2025 population was 30,982 and its area was 846.2 km². [NR-02]\n\nCalculation:\n- Ossbridge density = 52,904 ÷ 1,284.6 = 41.185 residents/km²\n- Ossford density = 30,982 ÷ 846.2 = 36.616 residents/km²\n- Difference = 41.185 − 36.616 = 4.569 residents/km²\n\nOssbridge has the higher 2025 population density by 4.569 residents per square kilometre.\n\nANSWER: Ossbridge | 4.569"
+    }
+  ]
+}

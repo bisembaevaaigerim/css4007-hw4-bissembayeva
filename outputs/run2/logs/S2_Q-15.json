@@ -1,0 +1,71 @@
+{
+  "question_id": "Q-15",
+  "question": "Which district has more pupils per school in 2025/26, Kelmarsh or Redfen, and by how many pupils per school?",
+  "model": "gpt-5.6-luna",
+  "result": {
+    "question_id": "Q-15",
+    "answer_name": "Redfen",
+    "answer_number": 17.609,
+    "votes": "4 of 5",
+    "all_answers": [
+      "Redfen | 17.973",
+      "Redfen | 17.609",
+      "Redfen | 17.609",
+      "Redfen | 17.609",
+      "Redfen | 17.609"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11080,
+    "output_tokens": 742,
+    "seconds": 9.885
+  },
+  "samples": [
+    {
+      "sample": 1,
+      "answer_name": "Redfen",
+      "answer_number": 17.973,
+      "input_tokens": 2216,
+      "output_tokens": 148,
+      "seconds": 1.845,
+      "text": "Facts used:\n- Kelmarsh has 11 schools and 3,268 pupils in 2025/26. [NR-04]\n- Redfen has 10 schools and 3,147 pupils in 2025/26. [NR-09]\n\nCalculation:\n- Kelmarsh: 3,268 ÷ 11 = 296.727 pupils per school.\n- Redfen: 3,147 ÷ 10 = 314.700 pupils per school.\n- Difference: 314.700 − 296.727 = 17.973 pupils per school.\n\nRedfen has more pupils per school by 17.973 pupils per school.\n\nANSWER: Redfen | 17.973"
+    },
+    {
+      "sample": 2,
+      "answer_name": "Redfen",
+      "answer_number": 17.609,
+      "input_tokens": 2216,
+      "output_tokens": 148,
+      "seconds": 1.94,
+      "text": "Facts used:\n- Kelmarsh had 11 schools and 3,268 pupils in 2025/26. [NR-04]\n- Redfen had 10 schools and 3,147 pupils in 2025/26. [NR-09]\n\nCalculation:\n- Kelmarsh: 3,268 ÷ 11 = 297.091 pupils per school.\n- Redfen: 3,147 ÷ 10 = 314.700 pupils per school.\n- Difference: 314.700 − 297.091 = 17.609 pupils per school.\n\nRedfen has more pupils per school by 17.609 pupils per school.\n\nANSWER: Redfen | 17.609"
+    },
+    {
+      "sample": 3,
+      "answer_name": "Redfen",
+      "answer_number": 17.609,
+      "input_tokens": 2216,
+      "output_tokens": 148,
+      "seconds": 1.946,
+      "text": "Facts used:\n- Kelmarsh has 11 schools and 3,268 pupils in 2025/26. [NR-04]\n- Redfen has 10 schools and 3,147 pupils in 2025/26. [NR-09]\n\nCalculation:\n- Kelmarsh: 3,268 ÷ 11 = 297.091 pupils per school.\n- Redfen: 3,147 ÷ 10 = 314.700 pupils per school.\n- Difference: 314.700 − 297.091 = 17.609 pupils per school.\n\nRedfen has more pupils per school by 17.609 pupils per school.\n\nANSWER: Redfen | 17.609"
+    },
+    {
+      "sample": 4,
+      "answer_name": "Redfen",
+      "answer_number": 17.609,
+      "input_tokens": 2216,
+      "output_tokens": 150,
+      "seconds": 1.976,
+      "text": "Facts used:\n- Kelmarsh has 11 schools and 3,268 pupils enrolled in 2025/26. [NR-04]\n- Redfen has 10 schools and 3,147 pupils enrolled in 2025/26. [NR-09]\n\nCalculation:\n- Kelmarsh: 3,268 ÷ 11 = 297.091 pupils per school\n- Redfen: 3,147 ÷ 10 = 314.700 pupils per school\n- Difference: 314.700 − 297.091 = 17.609 pupils per school\n\nRedfen has more pupils per school by 17.609 pupils per school.\n\nANSWER: Redfen | 17.609"
+    },
+    {
+      "sample": 5,
+      "answer_name": "Redfen",
+      "answer_number": 17.609,
+      "input_tokens": 2216,
+      "output_tokens": 148,
+      "seconds": 2.178,
+      "text": "Facts used:\n- Kelmarsh has 11 schools and 3,268 pupils in 2025/26. [NR-04]\n- Redfen has 10 schools and 3,147 pupils in 2025/26. [NR-09]\n\nCalculation:\n- Kelmarsh: 3,268 ÷ 11 = 297.091 pupils per school.\n- Redfen: 3,147 ÷ 10 = 314.700 pupils per school.\n- Difference: 314.700 − 297.091 = 17.609 pupils per school.\n\nRedfen has more pupils per school by 17.609 pupils per school.\n\nANSWER: Redfen | 17.609"
+    }
+  ]
+}

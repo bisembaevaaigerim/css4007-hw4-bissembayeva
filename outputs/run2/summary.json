@@ -1,0 +1,139 @@
+{
+  "model": "gpt-5.6-luna",
+  "k": 5,
+  "time": "Tue Oct 20 03:20:45 2026",
+  "summary": {
+    "S1": {
+      "correct": 10,
+      "questions": 20,
+      "unanswered": 4,
+      "input_tokens": 43900,
+      "output_tokens": 927,
+      "median_seconds": 1.37,
+      "total_seconds": 28.0,
+      "cost": 0.0099
+    },
+    "S2": {
+      "correct": 17,
+      "questions": 20,
+      "unanswered": 0,
+      "input_tokens": 222100,
+      "output_tokens": 18756,
+      "median_seconds": 10.97,
+      "total_seconds": 223.8,
+      "cost": 0.0669
+    },
+    "S3": {
+      "correct": 20,
+      "questions": 20,
+      "unanswered": 0,
+      "input_tokens": 88122,
+      "output_tokens": 4671,
+      "median_seconds": 5.2,
+      "total_seconds": 100.3,
+      "cost": 0.0232
+    }
+  },
+  "per_question": {
+    "Q-01": {
+      "S1": true,
+      "S2": true,
+      "S3": true
+    },
+    "Q-02": {
+      "S1": true,
+      "S2": true,
+      "S3": true
+    },
+    "Q-03": {
+      "S1": false,
+      "S2": true,
+      "S3": true
+    },
+    "Q-04": {
+      "S1": true,
+      "S2": true,
+      "S3": true
+    },
+    "Q-05": {
+      "S1": false,
+      "S2": false,
+      "S3": true
+    },
+    "Q-06": {
+      "S1": true,
+      "S2": true,
+      "S3": true
+    },
+    "Q-07": {
+      "S1": true,
+      "S2": true,
+      "S3": true
+    },
+    "Q-08": {
+      "S1": false,
+      "S2": true,
+      "S3": true
+    },
+    "Q-09": {
+      "S1": true,
+      "S2": true,
+      "S3": true
+    },
+    "Q-10": {
+      "S1": true,
+      "S2": true,
+      "S3": true
+    },
+    "Q-11": {
+      "S1": false,
+      "S2": true,
+      "S3": true
+    },
+    "Q-12": {
+      "S1": false,
+      "S2": false,
+      "S3": true
+    },
+    "Q-13": {
+      "S1": true,
+      "S2": true,
+      "S3": true
+    },
+    "Q-14": {
+      "S1": false,
+      "S2": true,
+      "S3": true
+    },
+    "Q-15": {
+      "S1": false,
+      "S2": true,
+      "S3": true
+    },
+    "Q-16": {
+      "S1": true,
+      "S2": true,
+      "S3": true
+    },
+    "Q-17": {
+      "S1": false,
+      "S2": false,
+      "S3": true
+    },
+    "Q-18": {
+      "S1": true,
+      "S2": true,
+      "S3": true
+    },
+    "Q-19": {
+      "S1": false,
+      "S2": true,
+      "S3": true
+    },
+    "Q-20": {
+      "S1": false,
+      "S2": true,
+      "S3": true
+    }
+  }
+}

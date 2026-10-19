@@ -1,0 +1,71 @@
+{
+  "question_id": "Q-02",
+  "question": "Between the 2020 and 2025 censuses, which district grew faster in percentage terms, Tarnvale or Harrowfield, and by how many percentage points?",
+  "model": "gpt-5.6-luna",
+  "result": {
+    "question_id": "Q-02",
+    "answer_name": "Harrowfield",
+    "answer_number": 1.688,
+    "votes": "1 of 5",
+    "all_answers": [
+      "Harrowfield | 1.688",
+      "Harrowfield | 1.69",
+      "Harrowfield | 1.685",
+      "Harrowfield | 1.689",
+      "yes | 1.688"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11105,
+    "output_tokens": 898,
+    "seconds": 10.787
+  },
+  "samples": [
+    {
+      "sample": 1,
+      "answer_name": "Harrowfield",
+      "answer_number": 1.688,
+      "input_tokens": 2221,
+      "output_tokens": 180,
+      "seconds": 2.38,
+      "text": "Facts used:\n- Tarnvale’s population was 67,214 in 2020 and 71,388 in 2025. [NR-03]\n- Harrowfield’s population was 83,609 in 2020 and 90,212 in 2025. [NR-07]\n\nCalculations:\n- Tarnvale growth: \\((71,388 - 67,214) / 67,214 \\times 100 = 6.210\\%\\)\n- Harrowfield growth: \\((90,212 - 83,609) / 83,609 \\times 100 = 7.898\\%\\)\n- Difference: \\(7.898 - 6.210 = 1.688\\) percentage points\n\nHarrowfield grew faster by 1.688 percentage points.\n\nANSWER: Harrowfield | 1.688"
+    },
+    {
+      "sample": 2,
+      "answer_name": "Harrowfield",
+      "answer_number": 1.69,
+      "input_tokens": 2221,
+      "output_tokens": 180,
+      "seconds": 2.071,
+      "text": "Facts used:\n- Tarnvale’s population was 67,214 in 2020 and 71,388 in 2025. [NR-03]\n- Harrowfield’s population was 83,609 in 2020 and 90,212 in 2025. [NR-07]\n\nCalculations:\n- Tarnvale growth: \\((71,388 - 67,214) / 67,214 \\times 100 = 6.208\\%\\)\n- Harrowfield growth: \\((90,212 - 83,609) / 83,609 \\times 100 = 7.898\\%\\)\n- Difference: \\(7.898 - 6.208 = 1.690\\) percentage points\n\nHarrowfield grew faster by 1.690 percentage points.\n\nANSWER: Harrowfield | 1.690"
+    },
+    {
+      "sample": 3,
+      "answer_name": "Harrowfield",
+      "answer_number": 1.685,
+      "input_tokens": 2221,
+      "output_tokens": 180,
+      "seconds": 2.037,
+      "text": "Facts used:\n- Tarnvale’s population was 67,214 in 2020 and 71,388 in 2025. [NR-03]\n- Harrowfield’s population was 83,609 in 2020 and 90,212 in 2025. [NR-07]\n\nCalculations:\n- Tarnvale growth: \\((71,388 - 67,214) / 67,214 \\times 100 = 6.213\\%\\)\n- Harrowfield growth: \\((90,212 - 83,609) / 83,609 \\times 100 = 7.898\\%\\)\n- Difference: \\(7.898 - 6.213 = 1.685\\) percentage points\n\nHarrowfield grew faster by 1.685 percentage points.\n\nANSWER: Harrowfield | 1.685"
+    },
+    {
+      "sample": 4,
+      "answer_name": "Harrowfield",
+      "answer_number": 1.689,
+      "input_tokens": 2221,
+      "output_tokens": 180,
+      "seconds": 2.003,
+      "text": "Facts used:\n- Tarnvale’s population was 67,214 in 2020 and 71,388 in 2025. [NR-03]\n- Harrowfield’s population was 83,609 in 2020 and 90,212 in 2025. [NR-07]\n\nCalculations:\n- Tarnvale growth: \\((71,388 - 67,214) / 67,214 \\times 100 = 6.209\\%\\)\n- Harrowfield growth: \\((90,212 - 83,609) / 83,609 \\times 100 = 7.898\\%\\)\n- Difference: \\(7.898 - 6.209 = 1.689\\) percentage points\n\nHarrowfield grew faster by 1.689 percentage points.\n\nANSWER: Harrowfield | 1.689"
+    },
+    {
+      "sample": 5,
+      "answer_name": "yes",
+      "answer_number": 1.688,
+      "input_tokens": 2221,
+      "output_tokens": 178,
+      "seconds": 2.296,
+      "text": "Facts used:\n- Tarnvale’s population was 67,214 in 2020 and 71,388 in 2025. [NR-03]\n- Harrowfield’s population was 83,609 in 2020 and 90,212 in 2025. [NR-07]\n\nCalculations:\n- Tarnvale growth: \\((71,388 - 67,214) / 67,214 \\times 100 = 6.210\\%\\)\n- Harrowfield growth: \\((90,212 - 83,609) / 83,609 \\times 100 = 7.898\\%\\)\n- Difference: \\(7.898 - 6.210 = 1.688\\) percentage points\n\nHarrowfield grew faster by 1.688 percentage points.\n\nANSWER: yes | 1.688"
+    }
+  ]
+}

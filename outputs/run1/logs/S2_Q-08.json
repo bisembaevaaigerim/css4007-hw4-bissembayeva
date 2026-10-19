@@ -1,0 +1,71 @@
+{
+  "question_id": "Q-08",
+  "question": "At the 2025 household water tariff, whose households paid more for water in 2025, Brightwater's or Millbrook's, and by how many million tenge?",
+  "model": "gpt-5.6-luna",
+  "result": {
+    "question_id": "Q-08",
+    "answer_name": "yes",
+    "answer_number": 72.456,
+    "votes": "2 of 5",
+    "all_answers": [
+      "yes | 72.156",
+      "Brightwater | 72.456",
+      "yes | 72.456",
+      "Brightwater | 72.036",
+      "yes | 72.456"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11115,
+    "output_tokens": 1101,
+    "seconds": 12.903
+  },
+  "samples": [
+    {
+      "sample": 1,
+      "answer_name": "yes",
+      "answer_number": 72.156,
+      "input_tokens": 2223,
+      "output_tokens": 214,
+      "seconds": 2.353,
+      "text": "Facts used:\n- Brightwater households used 3,315 megalitres of water in 2025. [NR-05]\n- Millbrook households used 2,806 megalitres of water in 2025. [NR-11]\n- The 2025 household water tariff was 142.35 tenge per cubic metre. [NR-15]\n- One megalitre equals 1,000 cubic metres. [NR-15]\n\nCalculation:\n- Brightwater: 3,315 × 1,000 × 142.35 = 471,590,250 tenge\n- Millbrook: 2,806 × 1,000 × 142.35 = 399,434,100 tenge\n- Difference: 471,590,250 − 399,434,100 = 72,156,150 tenge = 72.156 million tenge\n\nBrightwater's households paid more, by 72.156 million tenge.\n\nANSWER: yes | 72.156"
+    },
+    {
+      "sample": 2,
+      "answer_name": "Brightwater",
+      "answer_number": 72.456,
+      "input_tokens": 2223,
+      "output_tokens": 230,
+      "seconds": 3.081,
+      "text": "Facts used:\n- Brightwater households used 3,315 megalitres of water in 2025. [NR-05]\n- Millbrook households used 2,806 megalitres of water in 2025. [NR-11]\n- The 2025 household water tariff was 142.35 tenge per cubic metre. [NR-15]\n- One megalitre equals 1,000 cubic metres. [NR-15]\n\nCalculation:\n- Brightwater: 3,315 × 1,000 × 142.35 = 471,890,250 tenge = 471.890 million tenge.\n- Millbrook: 2,806 × 1,000 × 142.35 = 399,434,100 tenge = 399.434 million tenge.\n- Difference: 471.890250 − 399.434100 = 72.456150 million tenge ≈ 72.456 million tenge.\n\nBrightwater's households paid more, by 72.456 million tenge.\n\nANSWER: Brightwater | 72.456"
+    },
+    {
+      "sample": 3,
+      "answer_name": "yes",
+      "answer_number": 72.456,
+      "input_tokens": 2223,
+      "output_tokens": 214,
+      "seconds": 2.375,
+      "text": "Facts used:\n- [NR-05] Brightwater households used 3,315 megalitres of water in 2025.\n- [NR-11] Millbrook households used 2,806 megalitres of water in 2025.\n- [NR-15] The 2025 household water tariff was 142.35 tenge per cubic metre.\n- [NR-15] One megalitre equals 1,000 cubic metres.\n\nCalculation:\n- Brightwater: 3,315 × 1,000 × 142.35 = 471,890,250 tenge.\n- Millbrook: 2,806 × 1,000 × 142.35 = 399,434,100 tenge.\n- Difference: 471,890,250 − 399,434,100 = 72,456,150 tenge = 72.456 million tenge.\n\nBrightwater's households paid more, by 72.456 million tenge.\n\nANSWER: yes | 72.456"
+    },
+    {
+      "sample": 4,
+      "answer_name": "Brightwater",
+      "answer_number": 72.036,
+      "input_tokens": 2223,
+      "output_tokens": 230,
+      "seconds": 2.487,
+      "text": "Facts used:\n- Brightwater households used 3,315 megalitres of water in 2025. [NR-05]\n- Millbrook households used 2,806 megalitres of water in 2025. [NR-11]\n- The 2025 household water tariff was 142.35 tenge per cubic metre. [NR-15]\n- One megalitre equals 1,000 cubic metres. [NR-15]\n\nCalculation:\n- Brightwater: 3,315 × 1,000 × 142.35 = 471,470,250 tenge = 471.470 million tenge.\n- Millbrook: 2,806 × 1,000 × 142.35 = 399,434,100 tenge = 399.434 million tenge.\n- Difference: 471.470250 − 399.434100 = 72.036150 million tenge ≈ 72.036 million tenge.\n\nBrightwater's households paid more, by 72.036 million tenge.\n\nANSWER: Brightwater | 72.036"
+    },
+    {
+      "sample": 5,
+      "answer_name": "yes",
+      "answer_number": 72.456,
+      "input_tokens": 2223,
+      "output_tokens": 213,
+      "seconds": 2.606,
+      "text": "Facts used:\n- Brightwater households used 3,315 megalitres in 2025. [NR-05]\n- Millbrook households used 2,806 megalitres in 2025. [NR-11]\n- The 2025 household water tariff was 142.35 tenge per cubic metre. [NR-15]\n- One megalitre equals 1,000 cubic metres. [NR-15]\n\nCalculation:\n- Brightwater: 3,315 × 1,000 × 142.35 = 471,890,250 tenge = 471.890 million tenge.\n- Millbrook: 2,806 × 1,000 × 142.35 = 399,434,100 tenge = 399.434 million tenge.\n- Difference: 471.890 − 399.434 = 72.456 million tenge.\n\nBrightwater's households paid more, by 72.456 million tenge.\n\nANSWER: yes | 72.456"
+    }
+  ]
+}

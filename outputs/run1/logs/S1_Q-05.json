@@ -1,0 +1,16 @@
+{
+  "question_id": "Q-05",
+  "question": "Which district had the larger 2025 budget per resident, Stonecairn or Coldharbour, and by how many tenge per resident?",
+  "model": "gpt-5.6-luna",
+  "result": {
+    "question_id": "Q-05",
+    "final_text": "Coldharbour had the larger 2025 budget per resident by 30,371.161 tenge per resident.\n\nANSWER: Coldharbour | 30371.161",
+    "answer_name": "Coldharbour",
+    "answer_number": 30371.161,
+    "unanswered": false,
+    "model_calls": 1,
+    "input_tokens": 2191,
+    "output_tokens": 38,
+    "seconds": 1.874
+  }
+}

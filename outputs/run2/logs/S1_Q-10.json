@@ -1,0 +1,16 @@
+{
+  "question_id": "Q-10",
+  "question": "Which district is older, Stonecairn or Coldharbour, and how many years older is it than the other?",
+  "model": "gpt-5.6-luna",
+  "result": {
+    "question_id": "Q-10",
+    "final_text": "Stonecairn is older by 8 years.  \nANSWER: Stonecairn | 8.000",
+    "answer_name": "Stonecairn",
+    "answer_number": 8.0,
+    "unanswered": false,
+    "model_calls": 1,
+    "input_tokens": 2186,
+    "output_tokens": 26,
+    "seconds": 1.252
+  }
+}

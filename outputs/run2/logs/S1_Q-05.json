@@ -1,0 +1,16 @@
+{
+  "question_id": "Q-05",
+  "question": "Which district had the larger 2025 budget per resident, Stonecairn or Coldharbour, and by how many tenge per resident?",
+  "model": "gpt-5.6-luna",
+  "result": {
+    "question_id": "Q-05",
+    "final_text": "Coldharbour had the larger 2025 budget per resident. Stonecairn: 2,884.6 million ÷ 14,926 = 193,228.594 tenge per resident. Coldharbour: 2,366.9 million ÷ 11,407 = 207,499.781 tenge per resident. Difference: 14,271.187 tenge per resident.\n\nANSWER: Coldharbour | 14271.187",
+    "answer_name": "Coldharbour",
+    "answer_number": 14271.187,
+    "unanswered": false,
+    "model_calls": 1,
+    "input_tokens": 2191,
+    "output_tokens": 99,
+    "seconds": 1.595
+  }
+}

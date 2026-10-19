@@ -1,0 +1,71 @@
+{
+  "question_id": "Q-09",
+  "question": "Which district has the higher population density in 2025, Brightwater or Millbrook, and by how many residents per square kilometre?",
+  "model": "gpt-5.6-luna",
+  "result": {
+    "question_id": "Q-09",
+    "answer_name": "Millbrook",
+    "answer_number": 0.559,
+    "votes": "2 of 5",
+    "all_answers": [
+      "Millbrook | 0.559",
+      "Millbrook | 0.56",
+      "Millbrook | 0.559",
+      "Millbrook | 0.569",
+      "Millbrook | 0.563"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11075,
+    "output_tokens": 894,
+    "seconds": 10.474
+  },
+  "samples": [
+    {
+      "sample": 1,
+      "answer_name": "Millbrook",
+      "answer_number": 0.559,
+      "input_tokens": 2215,
+      "output_tokens": 180,
+      "seconds": 2.306,
+      "text": "Facts used:\n- Brightwater’s 2025 population was 44,675 residents (NR-05).\n- Brightwater’s corrected area is 921.4 square kilometres (NR-16).\n- Millbrook’s 2025 population was 37,203 residents (NR-11).\n- Millbrook’s area is 758.6 square kilometres (NR-11).\n\nCalculation:\n- Brightwater density = 44,675 ÷ 921.4 = 48.481 residents/km².\n- Millbrook density = 37,203 ÷ 758.6 = 49.040 residents/km².\n- Difference = 49.040 − 48.481 = 0.559 residents/km².\n\nMillbrook has the higher 2025 population density by 0.559 residents per square kilometre.\n\nANSWER: Millbrook | 0.559"
+    },
+    {
+      "sample": 2,
+      "answer_name": "Millbrook",
+      "answer_number": 0.56,
+      "input_tokens": 2215,
+      "output_tokens": 177,
+      "seconds": 2.088,
+      "text": "Facts used:\n- Brightwater’s 2025 population was 44,675 residents (NR-05).\n- Brightwater’s corrected area is 921.4 square kilometres (NR-16).\n- Millbrook’s 2025 population was 37,203 residents (NR-11).\n- Millbrook’s area is 758.6 square kilometres (NR-11).\n\nCalculation:\n- Brightwater density = 44,675 ÷ 921.4 = 48.481 residents/km².\n- Millbrook density = 37,203 ÷ 758.6 = 49.041 residents/km².\n- Difference = 49.041 − 48.481 = 0.560 residents/km².\n\nMillbrook has the higher population density by 0.560 residents per square kilometre.\n\nANSWER: Millbrook | 0.560"
+    },
+    {
+      "sample": 3,
+      "answer_name": "Millbrook",
+      "answer_number": 0.559,
+      "input_tokens": 2215,
+      "output_tokens": 178,
+      "seconds": 2.006,
+      "text": "Facts used:\n- Brightwater’s 2025 population is 44,675 residents (NR-05).\n- Brightwater’s corrected area is 921.4 km² (NR-16).\n- Millbrook’s 2025 population is 37,203 residents (NR-11).\n- Millbrook’s area is 758.6 km² (NR-11).\n\nCalculations:\n- Brightwater density = 44,675 ÷ 921.4 = 48.481 residents/km².\n- Millbrook density = 37,203 ÷ 758.6 = 49.040 residents/km².\n- Difference = 49.040 − 48.481 = 0.559 residents/km².\n\nMillbrook has the higher population density by 0.559 residents per square kilometre.\n\nANSWER: Millbrook | 0.559"
+    },
+    {
+      "sample": 4,
+      "answer_name": "Millbrook",
+      "answer_number": 0.569,
+      "input_tokens": 2215,
+      "output_tokens": 181,
+      "seconds": 2.048,
+      "text": "Facts used:\n- Brightwater’s 2025 population was 44,675 residents (NR-05).\n- Brightwater’s corrected area is 921.4 square kilometres (NR-16).\n- Millbrook’s 2025 population was 37,203 residents (NR-11).\n- Millbrook’s area is 758.6 square kilometres (NR-11).\n\nCalculations:\n- Brightwater density = 44,675 ÷ 921.4 = 48.484 residents/km².\n- Millbrook density = 37,203 ÷ 758.6 = 49.053 residents/km².\n- Difference = 49.053 − 48.484 = 0.569 residents/km².\n\nMillbrook has the higher 2025 population density by 0.569 residents per square kilometre.\n\nANSWER: Millbrook | 0.569"
+    },
+    {
+      "sample": 5,
+      "answer_name": "Millbrook",
+      "answer_number": 0.563,
+      "input_tokens": 2215,
+      "output_tokens": 178,
+      "seconds": 2.026,
+      "text": "Facts used:\n- [NR-05] Brightwater’s 2025 population is 44,675.\n- [NR-05] Brightwater’s listed area is 912.4 km², but [NR-16] corrects this to 921.4 km².\n- [NR-11] Millbrook’s 2025 population is 37,203.\n- [NR-11] Millbrook’s area is 758.6 km².\n\nCalculation:\n- Brightwater density = 44,675 ÷ 921.4 = 48.481 residents/km².\n- Millbrook density = 37,203 ÷ 758.6 = 49.044 residents/km².\n- Difference = 49.044 − 48.481 = 0.563 residents/km².\n\nANSWER: Millbrook | 0.563"
+    }
+  ]
+}

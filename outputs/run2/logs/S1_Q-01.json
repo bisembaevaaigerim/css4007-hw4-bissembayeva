@@ -1,0 +1,16 @@
+{
+  "question_id": "Q-01",
+  "question": "Which district has the higher population density in 2025, Ossbridge or Ossford, and by how many residents per square kilometre?",
+  "model": "gpt-5.6-luna",
+  "result": {
+    "question_id": "Q-01",
+    "final_text": "Ossbridge has the higher population density: 41.187 residents/km² versus Ossford’s 36.615, a difference of 4.572 residents/km².\n\nANSWER: Ossbridge | 4.572",
+    "answer_name": "Ossbridge",
+    "answer_number": 4.572,
+    "unanswered": false,
+    "model_calls": 1,
+    "input_tokens": 2189,
+    "output_tokens": 48,
+    "seconds": 1.657
+  }
+}

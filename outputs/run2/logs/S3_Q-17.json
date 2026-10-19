@@ -1,0 +1,296 @@
+{
+  "question_id": "Q-17",
+  "question": "At the 2025 household water tariff, which district's households paid more for water per resident in 2025, Harrowfield or Ossbridge, and by how many tenge per resident?",
+  "model": "gpt-5.6-luna",
+  "rounds": [
+    {
+      "round": 1,
+      "input_tokens": 760,
+      "output_tokens": 139,
+      "model_text": null,
+      "tool_calls": [
+        {
+          "id": "call_t638d9UBf8FZL4upDpsxa3l5",
+          "tool": "lookup",
+          "arguments": "{\"district\": \"Harrowfield\", \"field\": \"water_use_2025_megalitres\"}",
+          "result": {
+            "district": "Harrowfield",
+            "field": "water_use_2025_megalitres",
+            "value": 7146,
+            "unit": "megalitres",
+            "source": "NR-07",
+            "corrected_by": null,
+            "note": "",
+            "evidence": "Household water use in 2025 came to 7,146 megalitres."
+          },
+          "seconds": 0.0
+        },
+        {
+          "id": "call_JYwiPLEYUZXOmo4dpqPFV6YT",
+          "tool": "lookup",
+          "arguments": "{\"district\": \"Harrowfield\", \"field\": \"population_2025\"}",
+          "result": {
+            "district": "Harrowfield",
+            "field": "population_2025",
+            "value": 90212,
+            "unit": "residents",
+            "source": "NR-07",
+            "corrected_by": null,
+            "note": "",
+            "evidence": "The 2025 census recorded 90,212 residents; the 2020 census had recorded 83,609."
+          },
+          "seconds": 0.0
+        },
+        {
+          "id": "call_zLgj83yQoLOW3VVN0qzvSxjD",
+          "tool": "lookup",
+          "arguments": "{\"district\": \"Ossbridge\", \"field\": \"water_use_2025_megalitres\"}",
+          "result": {
+            "district": "Ossbridge",
+            "field": "water_use_2025_megalitres",
+            "value": 3862,
+            "unit": "megalitres",
+            "source": "NR-01",
+            "corrected_by": null,
+            "note": "",
+            "evidence": "Household water use in 2025 came to 3,862 megalitres."
+          },
+          "seconds": 0.0
+        },
+        {
+          "id": "call_BU3QvfucbZSYKk34YTN0wKi2",
+          "tool": "lookup",
+          "arguments": "{\"district\": \"Ossbridge\", \"field\": \"population_2025\"}",
+          "result": {
+            "district": "Ossbridge",
+            "field": "population_2025",
+            "value": 52904,
+            "unit": "residents",
+            "source": "NR-01",
+            "corrected_by": null,
+            "note": "",
+            "evidence": "The 2025 census recorded 52,904 residents; the 2020 census had recorded 48,317."
+          },
+          "seconds": 0.0
+        },
+        {
+          "id": "call_wkfqB17qYRXf3OJU3NrEdIJR",
+          "tool": "lookup",
+          "arguments": "{\"district\": \"Region\", \"field\": \"water_tariff_2025\"}",
+          "result": {
+            "district": "Region",
+            "field": "water_tariff_2025",
+            "value": 142.35,
+            "unit": "tenge per m3",
+            "source": "NR-15",
+            "corrected_by": null,
+            "note": "the same in every district",
+            "evidence": "From 1 January 2025 the regional household water tariff is 142.35 tenge per cubic metre, in every district."
+          },
+          "seconds": 0.0
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "input_tokens": 1330,
+      "output_tokens": 73,
+      "model_text": null,
+      "tool_calls": [
+        {
+          "id": "call_LskOdkIOERdo0p5pHsCbQjaT",
+          "tool": "calculate",
+          "arguments": "{\"expression\": \"7146 * 1000 * 142.35 / 90212\"}",
+          "result": {
+            "expression": "7146 * 1000 * 142.35 / 90212",
+            "result": 11276.028687979426
+          },
+          "seconds": 0.0
+        },
+        {
+          "id": "call_IdLvXq03FbFpx1NGR4WYbtQo",
+          "tool": "calculate",
+          "arguments": "{\"expression\": \"3862 * 1000 * 142.35 / 52904\"}",
+          "result": {
+            "expression": "3862 * 1000 * 142.35 / 52904",
+            "result": 10391.571525782549
+          },
+          "seconds": 0.0
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "input_tokens": 1481,
+      "output_tokens": 47,
+      "model_text": null,
+      "tool_calls": [
+        {
+          "id": "call_GKy8242ypCDr41lkYqvA0ru0",
+          "tool": "calculate",
+          "arguments": "{\"expression\":\"7146 * 1000 * 142.35 / 90212 - 3862 * 1000 * 142.35 / 52904\"}",
+          "result": {
+            "expression": "7146 * 1000 * 142.35 / 90212 - 3862 * 1000 * 142.35 / 52904",
+            "result": 884.4571621968771
+          },
+          "seconds": 0.0
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "input_tokens": 1587,
+      "output_tokens": 34,
+      "model_text": "Harrowfield households paid more: **884.457 tenge per resident** more than Ossbridge.\n\nANSWER: Harrowfield | 884.457",
+      "tool_calls": []
+    }
+  ],
+  "result": {
+    "question_id": "Q-17",
+    "final_text": "Harrowfield households paid more: **884.457 tenge per resident** more than Ossbridge.\n\nANSWER: Harrowfield | 884.457",
+    "answer_name": "Harrowfield",
+    "answer_number": 884.457,
+    "unanswered": false,
+    "model_calls": 4,
+    "tool_calls": 8,
+    "input_tokens": 5158,
+    "output_tokens": 293,
+    "seconds": 5.733
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You answer questions about the Nine Rivers Region, a made-up place. You do not have the documents. Get every fact with the lookup tool and do every calculation with the calculate tool.\nEnd your reply with exactly one line in this format:\nANSWER: <district name or yes/no> | <number>\nWrite the number with 3 decimals, no units and no commas, for example: ANSWER: Millbrook | 0.556"
+    },
+    {
+      "role": "user",
+      "content": "At the 2025 household water tariff, which district's households paid more for water per resident in 2025, Harrowfield or Ossbridge, and by how many tenge per resident?"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_t638d9UBf8FZL4upDpsxa3l5",
+          "function": {
+            "arguments": "{\"district\": \"Harrowfield\", \"field\": \"water_use_2025_megalitres\"}",
+            "name": "lookup"
+          },
+          "type": "function"
+        },
+        {
+          "id": "call_JYwiPLEYUZXOmo4dpqPFV6YT",
+          "function": {
+            "arguments": "{\"district\": \"Harrowfield\", \"field\": \"population_2025\"}",
+            "name": "lookup"
+          },
+          "type": "function"
+        },
+        {
+          "id": "call_zLgj83yQoLOW3VVN0qzvSxjD",
+          "function": {
+            "arguments": "{\"district\": \"Ossbridge\", \"field\": \"water_use_2025_megalitres\"}",
+            "name": "lookup"
+          },
+          "type": "function"
+        },
+        {
+          "id": "call_BU3QvfucbZSYKk34YTN0wKi2",
+          "function": {
+            "arguments": "{\"district\": \"Ossbridge\", \"field\": \"population_2025\"}",
+            "name": "lookup"
+          },
+          "type": "function"
+        },
+        {
+          "id": "call_wkfqB17qYRXf3OJU3NrEdIJR",
+          "function": {
+            "arguments": "{\"district\": \"Region\", \"field\": \"water_tariff_2025\"}",
+            "name": "lookup"
+          },
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_t638d9UBf8FZL4upDpsxa3l5",
+      "content": "{\"district\": \"Harrowfield\", \"field\": \"water_use_2025_megalitres\", \"value\": 7146, \"unit\": \"megalitres\", \"source\": \"NR-07\", \"corrected_by\": null, \"note\": \"\", \"evidence\": \"Household water use in 2025 came to 7,146 megalitres.\"}"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_JYwiPLEYUZXOmo4dpqPFV6YT",
+      "content": "{\"district\": \"Harrowfield\", \"field\": \"population_2025\", \"value\": 90212, \"unit\": \"residents\", \"source\": \"NR-07\", \"corrected_by\": null, \"note\": \"\", \"evidence\": \"The 2025 census recorded 90,212 residents; the 2020 census had recorded 83,609.\"}"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_zLgj83yQoLOW3VVN0qzvSxjD",
+      "content": "{\"district\": \"Ossbridge\", \"field\": \"water_use_2025_megalitres\", \"value\": 3862, \"unit\": \"megalitres\", \"source\": \"NR-01\", \"corrected_by\": null, \"note\": \"\", \"evidence\": \"Household water use in 2025 came to 3,862 megalitres.\"}"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_BU3QvfucbZSYKk34YTN0wKi2",
+      "content": "{\"district\": \"Ossbridge\", \"field\": \"population_2025\", \"value\": 52904, \"unit\": \"residents\", \"source\": \"NR-01\", \"corrected_by\": null, \"note\": \"\", \"evidence\": \"The 2025 census recorded 52,904 residents; the 2020 census had recorded 48,317.\"}"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_wkfqB17qYRXf3OJU3NrEdIJR",
+      "content": "{\"district\": \"Region\", \"field\": \"water_tariff_2025\", \"value\": 142.35, \"unit\": \"tenge per m3\", \"source\": \"NR-15\", \"corrected_by\": null, \"note\": \"the same in every district\", \"evidence\": \"From 1 January 2025 the regional household water tariff is 142.35 tenge per cubic metre, in every district.\"}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_LskOdkIOERdo0p5pHsCbQjaT",
+          "function": {
+            "arguments": "{\"expression\": \"7146 * 1000 * 142.35 / 90212\"}",
+            "name": "calculate"
+          },
+          "type": "function"
+        },
+        {
+          "id": "call_IdLvXq03FbFpx1NGR4WYbtQo",
+          "function": {
+            "arguments": "{\"expression\": \"3862 * 1000 * 142.35 / 52904\"}",
+            "name": "calculate"
+          },
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_LskOdkIOERdo0p5pHsCbQjaT",
+      "content": "{\"expression\": \"7146 * 1000 * 142.35 / 90212\", \"result\": 11276.028687979426}"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_IdLvXq03FbFpx1NGR4WYbtQo",
+      "content": "{\"expression\": \"3862 * 1000 * 142.35 / 52904\", \"result\": 10391.571525782549}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_GKy8242ypCDr41lkYqvA0ru0",
+          "function": {
+            "arguments": "{\"expression\":\"7146 * 1000 * 142.35 / 90212 - 3862 * 1000 * 142.35 / 52904\"}",
+            "name": "calculate"
+          },
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_GKy8242ypCDr41lkYqvA0ru0",
+      "content": "{\"expression\": \"7146 * 1000 * 142.35 / 90212 - 3862 * 1000 * 142.35 / 52904\", \"result\": 884.4571621968771}"
+    },
+    {
+      "role": "assistant",
+      "content": "Harrowfield households paid more: **884.457 tenge per resident** more than Ossbridge.\n\nANSWER: Harrowfield | 884.457"
+    }
+  ]
+}

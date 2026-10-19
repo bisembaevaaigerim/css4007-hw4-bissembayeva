@@ -1,0 +1,16 @@
+{
+  "question_id": "Q-14",
+  "question": "In 2025, which district's households used more water per resident per day, Tarnvale or Ashgrove, and by how many litres per resident per day?",
+  "model": "gpt-5.6-luna",
+  "result": {
+    "question_id": "Q-14",
+    "final_text": "Tarnvale used more: 199.755 − 204.?? Wait. Tarnvale: 5,207 ML ÷ 71,388 ÷ 365 × 1,000 = 199.755 L/resident/day. Ashgrove: 4,390 ML ÷ 58,760 ÷ 365 × 1,000 = 204.?? 4,390,000,000 ÷ 58,760 ÷ 365 = 204.?? Ashgrove used more by 4.86 L/resident/day.\n\nANSWER: Ashgrove | 4.863",
+    "answer_name": "Ashgrove",
+    "answer_number": 4.863,
+    "unanswered": false,
+    "model_calls": 1,
+    "input_tokens": 2195,
+    "output_tokens": 130,
+    "seconds": 2.184
+  }
+}

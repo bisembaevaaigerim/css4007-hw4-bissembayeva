@@ -1,0 +1,71 @@
+{
+  "question_id": "Q-19",
+  "question": "Which district has the denser paved road network, Lindenmoor or Redfen, and by how many km of road per square kilometre?",
+  "model": "gpt-5.6-luna",
+  "result": {
+    "question_id": "Q-19",
+    "answer_name": "Lindenmoor",
+    "answer_number": 0.035,
+    "votes": "5 of 5",
+    "all_answers": [
+      "Lindenmoor | 0.035",
+      "Lindenmoor | 0.035",
+      "Lindenmoor | 0.035",
+      "Lindenmoor | 0.035",
+      "Lindenmoor | 0.035"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11075,
+    "output_tokens": 827,
+    "seconds": 9.65
+  },
+  "samples": [
+    {
+      "sample": 1,
+      "answer_name": "Lindenmoor",
+      "answer_number": 0.035,
+      "input_tokens": 2215,
+      "output_tokens": 167,
+      "seconds": 1.875,
+      "text": "Facts used:\n- Lindenmoor has 402.3 km of paved road and covers 1,015.7 km². [NR-08]\n- Redfen has 244.6 km of paved road and covers 677.1 km². [NR-09]\n\nCalculation:\n- Lindenmoor road density = 402.3 ÷ 1,015.7 = 0.396 km/km².\n- Redfen road density = 244.6 ÷ 677.1 = 0.361 km/km².\n- Difference = 0.396 − 0.361 = 0.035 km/km².\n\nLindenmoor has the denser paved road network by 0.035 km of road per square kilometre.\n\nANSWER: Lindenmoor | 0.035"
+    },
+    {
+      "sample": 2,
+      "answer_name": "Lindenmoor",
+      "answer_number": 0.035,
+      "input_tokens": 2215,
+      "output_tokens": 149,
+      "seconds": 1.689,
+      "text": "Facts used:\n- Lindenmoor has 402.3 km of paved road and covers 1,015.7 km². [NR-08]\n- Redfen has 244.6 km of paved road and covers 677.1 km². [NR-09]\n\nCalculation:\n- Lindenmoor: 402.3 ÷ 1,015.7 = 0.396 km of road per km²\n- Redfen: 244.6 ÷ 677.1 = 0.361 km of road per km²\n- Difference: 0.396 − 0.361 = 0.035 km of road per km²\n\nANSWER: Lindenmoor | 0.035"
+    },
+    {
+      "sample": 3,
+      "answer_name": "Lindenmoor",
+      "answer_number": 0.035,
+      "input_tokens": 2215,
+      "output_tokens": 163,
+      "seconds": 2.096,
+      "text": "Facts used:\n- Lindenmoor has 402.3 km of paved road and covers 1,015.7 km². (NR-08)\n- Redfen has 244.6 km of paved road and covers 677.1 km². (NR-09)\n\nCalculation:\n- Lindenmoor: 402.3 ÷ 1,015.7 = 0.396 km/km²\n- Redfen: 244.6 ÷ 677.1 = 0.361 km/km²\n- Difference: 0.396 − 0.361 = 0.035 km/km²\n\nLindenmoor has the denser paved road network by 0.035 km of road per square kilometre.\n\nANSWER: Lindenmoor | 0.035"
+    },
+    {
+      "sample": 4,
+      "answer_name": "Lindenmoor",
+      "answer_number": 0.035,
+      "input_tokens": 2215,
+      "output_tokens": 172,
+      "seconds": 2.043,
+      "text": "Facts used:\n- Lindenmoor has 402.3 km of paved road and covers 1,015.7 km². [NR-08]\n- Redfen has 244.6 km of paved road and covers 677.1 km². [NR-09]\n\nCalculation:\n- Lindenmoor: 402.3 ÷ 1,015.7 = 0.396 km of road per km².\n- Redfen: 244.6 ÷ 677.1 = 0.361 km of road per km².\n- Difference: 0.396 − 0.361 = 0.035 km of road per km².\n\nLindenmoor has the denser paved road network by 0.035 km of road per square kilometre.\n\nANSWER: Lindenmoor | 0.035"
+    },
+    {
+      "sample": 5,
+      "answer_name": "Lindenmoor",
+      "answer_number": 0.035,
+      "input_tokens": 2215,
+      "output_tokens": 176,
+      "seconds": 1.947,
+      "text": "Facts used:\n- Lindenmoor’s area is 1,015.7 km² and its paved road network is 402.3 km (NR-08).\n- Redfen’s area is 677.1 km² and its paved road network is 244.6 km (NR-09).\n\nCalculation:\n- Lindenmoor: 402.3 ÷ 1,015.7 = 0.396 km of road per km².\n- Redfen: 244.6 ÷ 677.1 = 0.361 km of road per km².\n- Difference: 0.396 − 0.361 = 0.035 km of road per km².\n\nLindenmoor has the denser paved road network by 0.035 km of road per square kilometre.\n\nANSWER: Lindenmoor | 0.035"
+    }
+  ]
+}

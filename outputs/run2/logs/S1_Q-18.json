@@ -1,0 +1,16 @@
+{
+  "question_id": "Q-18",
+  "question": "If Millbrook's population grows by the same percentage from 2025 to 2030 as it did from 2020 to 2025, will it exceed 40,000 residents in 2030? Give the projected 2030 population.",
+  "model": "gpt-5.6-luna",
+  "result": {
+    "question_id": "Q-18",
+    "final_text": "Millbrook’s growth from 2020 to 2025 was:\n\n\\[\n\\frac{37,203-34,590}{34,590}=0.075543\n\\]\n\nApplying the same percentage growth to 2030:\n\n\\[\n37,203 \\times (1+0.075543)=40,014.1\n\\]\n\nYes, it would exceed 40,000 residents.\n\nANSWER: yes | 40014.100",
+    "answer_name": "yes",
+    "answer_number": 40014.1,
+    "unanswered": false,
+    "model_calls": 1,
+    "input_tokens": 2212,
+    "output_tokens": 94,
+    "seconds": 1.84
+  }
+}

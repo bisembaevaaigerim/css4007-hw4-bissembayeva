@@ -1,0 +1,71 @@
+{
+  "question_id": "Q-06",
+  "question": "Is the combined 2025 population of Redfen and Kelmarsh larger than the 2025 population of Ossford, and by how many residents do they differ?",
+  "model": "gpt-5.6-luna",
+  "result": {
+    "question_id": "Q-06",
+    "answer_name": "yes",
+    "answer_number": 14069.0,
+    "votes": "5 of 5",
+    "all_answers": [
+      "yes | 14069.0",
+      "yes | 14069.0",
+      "yes | 14069.0",
+      "yes | 14069.0",
+      "yes | 14069.0"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11105,
+    "output_tokens": 688,
+    "seconds": 8.756
+  },
+  "samples": [
+    {
+      "sample": 1,
+      "answer_name": "yes",
+      "answer_number": 14069.0,
+      "input_tokens": 2221,
+      "output_tokens": 138,
+      "seconds": 2.008,
+      "text": "Facts used:\n- Redfen’s 2025 population was 20,934 residents. [NR-09]\n- Kelmarsh’s 2025 population was 24,117 residents. [NR-04]\n- Ossford’s 2025 population was 30,982 residents. [NR-02]\n\nCalculation:\n- Combined Redfen and Kelmarsh population: 20,934 + 24,117 = 45,051.\n- Difference from Ossford: 45,051 − 30,982 = 14,069.\n\nYes, the combined population is larger by 14,069 residents.\n\nANSWER: yes | 14069.000"
+    },
+    {
+      "sample": 2,
+      "answer_name": "yes",
+      "answer_number": 14069.0,
+      "input_tokens": 2221,
+      "output_tokens": 136,
+      "seconds": 1.831,
+      "text": "Facts used:\n- Redfen’s 2025 population was 20,934 residents. [NR-09]\n- Kelmarsh’s 2025 population was 24,117 residents. [NR-04]\n- Ossford’s 2025 population was 30,982 residents. [NR-02]\n\nCalculation:\n- Combined Redfen and Kelmarsh population: 20,934 + 24,117 = 45,051.\n- Difference from Ossford: 45,051 − 30,982 = 14,069.\n\nThe combined population is larger by 14,069 residents.\n\nANSWER: yes | 14069.000"
+    },
+    {
+      "sample": 3,
+      "answer_name": "yes",
+      "answer_number": 14069.0,
+      "input_tokens": 2221,
+      "output_tokens": 138,
+      "seconds": 1.59,
+      "text": "Facts used:\n- Redfen’s 2025 population was 20,934 residents. [NR-09]\n- Kelmarsh’s 2025 population was 24,117 residents. [NR-04]\n- Ossford’s 2025 population was 30,982 residents. [NR-02]\n\nCalculation:\n- Combined Redfen and Kelmarsh population: 20,934 + 24,117 = 45,051\n- Difference from Ossford: 45,051 − 30,982 = 14,069\n\nYes, the combined population is larger by 14,069 residents.\n\nANSWER: yes | 14069.000"
+    },
+    {
+      "sample": 4,
+      "answer_name": "yes",
+      "answer_number": 14069.0,
+      "input_tokens": 2221,
+      "output_tokens": 138,
+      "seconds": 1.753,
+      "text": "Facts used:\n- Redfen’s 2025 population was 20,934 residents. [NR-09]\n- Kelmarsh’s 2025 population was 24,117 residents. [NR-04]\n- Ossford’s 2025 population was 30,982 residents. [NR-02]\n\nCalculation:\n- Combined Redfen and Kelmarsh population: 20,934 + 24,117 = 45,051.\n- Difference from Ossford: 45,051 − 30,982 = 14,069.\n\nYes, the combined population is larger by 14,069 residents.\n\nANSWER: yes | 14069.000"
+    },
+    {
+      "sample": 5,
+      "answer_name": "yes",
+      "answer_number": 14069.0,
+      "input_tokens": 2221,
+      "output_tokens": 138,
+      "seconds": 1.574,
+      "text": "Facts used:\n- Redfen’s 2025 population was 20,934 residents. [NR-09]\n- Kelmarsh’s 2025 population was 24,117 residents. [NR-04]\n- Ossford’s 2025 population was 30,982 residents. [NR-02]\n\nCalculation:\n- Combined Redfen and Kelmarsh population: 20,934 + 24,117 = 45,051\n- Difference from Ossford: 45,051 − 30,982 = 14,069\n\nYes, the combined population is larger by 14,069 residents.\n\nANSWER: yes | 14069.000"
+    }
+  ]
+}

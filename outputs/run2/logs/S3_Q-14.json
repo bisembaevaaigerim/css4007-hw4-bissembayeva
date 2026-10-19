@@ -1,0 +1,267 @@
+{
+  "question_id": "Q-14",
+  "question": "In 2025, which district's households used more water per resident per day, Tarnvale or Ashgrove, and by how many litres per resident per day?",
+  "model": "gpt-5.6-luna",
+  "rounds": [
+    {
+      "round": 1,
+      "input_tokens": 754,
+      "output_tokens": 117,
+      "model_text": null,
+      "tool_calls": [
+        {
+          "id": "call_HIE2iLH5XiIraKLUMAi71yK7",
+          "tool": "lookup",
+          "arguments": "{\"district\": \"Tarnvale\", \"field\": \"water_use_2025_megalitres\"}",
+          "result": {
+            "district": "Tarnvale",
+            "field": "water_use_2025_megalitres",
+            "value": 5207,
+            "unit": "megalitres",
+            "source": "NR-03",
+            "corrected_by": null,
+            "note": "",
+            "evidence": "Households used 5,207 megalitres of water in 2025."
+          },
+          "seconds": 0.0
+        },
+        {
+          "id": "call_AawAUCGvDd6NQXl2GPUIdBIj",
+          "tool": "lookup",
+          "arguments": "{\"district\": \"Tarnvale\", \"field\": \"population_2025\"}",
+          "result": {
+            "district": "Tarnvale",
+            "field": "population_2025",
+            "value": 71388,
+            "unit": "residents",
+            "source": "NR-03",
+            "corrected_by": null,
+            "note": "",
+            "evidence": "The 2025 census counted 71,388 residents, up from 67,214 at the 2020 census, on an area of 2,106.9 square kilometres."
+          },
+          "seconds": 0.0
+        },
+        {
+          "id": "call_bUIBaCSytUdJaPsj1kLiV1RM",
+          "tool": "lookup",
+          "arguments": "{\"district\": \"Ashgrove\", \"field\": \"water_use_2025_megalitres\"}",
+          "result": {
+            "district": "Ashgrove",
+            "field": "water_use_2025_megalitres",
+            "value": 4390,
+            "unit": "megalitres",
+            "source": "NR-10",
+            "corrected_by": null,
+            "note": "",
+            "evidence": "Household water use in 2025 came to 4,390 megalitres."
+          },
+          "seconds": 0.0
+        },
+        {
+          "id": "call_4xD7e6ydpIBYTC9wmdO9bGVw",
+          "tool": "lookup",
+          "arguments": "{\"district\": \"Ashgrove\", \"field\": \"population_2025\"}",
+          "result": {
+            "district": "Ashgrove",
+            "field": "population_2025",
+            "value": 58760,
+            "unit": "residents",
+            "source": "NR-10",
+            "corrected_by": null,
+            "note": "",
+            "evidence": "The 2025 census recorded 58,760 residents; the 2020 census had recorded 56,041."
+          },
+          "seconds": 0.0
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "input_tokens": 1222,
+      "output_tokens": 71,
+      "model_text": null,
+      "tool_calls": [
+        {
+          "id": "call_aTs5tLn0tggvMSEYiRWcPTPE",
+          "tool": "calculate",
+          "arguments": "{\"expression\": \"5207 * 1000000 / 71388 / 365\"}",
+          "result": {
+            "expression": "5207 * 1000000 / 71388 / 365",
+            "result": 199.8340536877001
+          },
+          "seconds": 0.0
+        },
+        {
+          "id": "call_RgzmxiYATAfSiqMiYNglHJ4G",
+          "tool": "calculate",
+          "arguments": "{\"expression\": \"4390 * 1000000 / 58760 / 365\"}",
+          "result": {
+            "expression": "4390 * 1000000 / 58760 / 365",
+            "result": 204.68681518505738
+          },
+          "seconds": 0.0
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "input_tokens": 1369,
+      "output_tokens": 45,
+      "model_text": null,
+      "tool_calls": [
+        {
+          "id": "call_qNGxjlCuyMbdPFX5kPUKTDfh",
+          "tool": "calculate",
+          "arguments": "{\"expression\":\"4390 * 1000000 / 58760 / 365 - 5207 * 1000000 / 71388 / 365\"}",
+          "result": {
+            "expression": "4390 * 1000000 / 58760 / 365 - 5207 * 1000000 / 71388 / 365",
+            "result": 4.852761497357278
+          },
+          "seconds": 0.0
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "input_tokens": 1471,
+      "output_tokens": 34,
+      "model_text": "Ashgrove used more water: 4.853 litres per resident per day more than Tarnvale.\n\nANSWER: Ashgrove | 4.853",
+      "tool_calls": []
+    }
+  ],
+  "result": {
+    "question_id": "Q-14",
+    "final_text": "Ashgrove used more water: 4.853 litres per resident per day more than Tarnvale.\n\nANSWER: Ashgrove | 4.853",
+    "answer_name": "Ashgrove",
+    "answer_number": 4.853,
+    "unanswered": false,
+    "model_calls": 4,
+    "tool_calls": 7,
+    "input_tokens": 4816,
+    "output_tokens": 267,
+    "seconds": 5.277
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You answer questions about the Nine Rivers Region, a made-up place. You do not have the documents. Get every fact with the lookup tool and do every calculation with the calculate tool.\nEnd your reply with exactly one line in this format:\nANSWER: <district name or yes/no> | <number>\nWrite the number with 3 decimals, no units and no commas, for example: ANSWER: Millbrook | 0.556"
+    },
+    {
+      "role": "user",
+      "content": "In 2025, which district's households used more water per resident per day, Tarnvale or Ashgrove, and by how many litres per resident per day?"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_HIE2iLH5XiIraKLUMAi71yK7",
+          "function": {
+            "arguments": "{\"district\": \"Tarnvale\", \"field\": \"water_use_2025_megalitres\"}",
+            "name": "lookup"
+          },
+          "type": "function"
+        },
+        {
+          "id": "call_AawAUCGvDd6NQXl2GPUIdBIj",
+          "function": {
+            "arguments": "{\"district\": \"Tarnvale\", \"field\": \"population_2025\"}",
+            "name": "lookup"
+          },
+          "type": "function"
+        },
+        {
+          "id": "call_bUIBaCSytUdJaPsj1kLiV1RM",
+          "function": {
+            "arguments": "{\"district\": \"Ashgrove\", \"field\": \"water_use_2025_megalitres\"}",
+            "name": "lookup"
+          },
+          "type": "function"
+        },
+        {
+          "id": "call_4xD7e6ydpIBYTC9wmdO9bGVw",
+          "function": {
+            "arguments": "{\"district\": \"Ashgrove\", \"field\": \"population_2025\"}",
+            "name": "lookup"
+          },
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_HIE2iLH5XiIraKLUMAi71yK7",
+      "content": "{\"district\": \"Tarnvale\", \"field\": \"water_use_2025_megalitres\", \"value\": 5207, \"unit\": \"megalitres\", \"source\": \"NR-03\", \"corrected_by\": null, \"note\": \"\", \"evidence\": \"Households used 5,207 megalitres of water in 2025.\"}"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_AawAUCGvDd6NQXl2GPUIdBIj",
+      "content": "{\"district\": \"Tarnvale\", \"field\": \"population_2025\", \"value\": 71388, \"unit\": \"residents\", \"source\": \"NR-03\", \"corrected_by\": null, \"note\": \"\", \"evidence\": \"The 2025 census counted 71,388 residents, up from 67,214 at the 2020 census, on an area of 2,106.9 square kilometres.\"}"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_bUIBaCSytUdJaPsj1kLiV1RM",
+      "content": "{\"district\": \"Ashgrove\", \"field\": \"water_use_2025_megalitres\", \"value\": 4390, \"unit\": \"megalitres\", \"source\": \"NR-10\", \"corrected_by\": null, \"note\": \"\", \"evidence\": \"Household water use in 2025 came to 4,390 megalitres.\"}"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_4xD7e6ydpIBYTC9wmdO9bGVw",
+      "content": "{\"district\": \"Ashgrove\", \"field\": \"population_2025\", \"value\": 58760, \"unit\": \"residents\", \"source\": \"NR-10\", \"corrected_by\": null, \"note\": \"\", \"evidence\": \"The 2025 census recorded 58,760 residents; the 2020 census had recorded 56,041.\"}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_aTs5tLn0tggvMSEYiRWcPTPE",
+          "function": {
+            "arguments": "{\"expression\": \"5207 * 1000000 / 71388 / 365\"}",
+            "name": "calculate"
+          },
+          "type": "function"
+        },
+        {
+          "id": "call_RgzmxiYATAfSiqMiYNglHJ4G",
+          "function": {
+            "arguments": "{\"expression\": \"4390 * 1000000 / 58760 / 365\"}",
+            "name": "calculate"
+          },
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_aTs5tLn0tggvMSEYiRWcPTPE",
+      "content": "{\"expression\": \"5207 * 1000000 / 71388 / 365\", \"result\": 199.8340536877001}"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_RgzmxiYATAfSiqMiYNglHJ4G",
+      "content": "{\"expression\": \"4390 * 1000000 / 58760 / 365\", \"result\": 204.68681518505738}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_qNGxjlCuyMbdPFX5kPUKTDfh",
+          "function": {
+            "arguments": "{\"expression\":\"4390 * 1000000 / 58760 / 365 - 5207 * 1000000 / 71388 / 365\"}",
+            "name": "calculate"
+          },
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_qNGxjlCuyMbdPFX5kPUKTDfh",
+      "content": "{\"expression\": \"4390 * 1000000 / 58760 / 365 - 5207 * 1000000 / 71388 / 365\", \"result\": 4.852761497357278}"
+    },
+    {
+      "role": "assistant",
+      "content": "Ashgrove used more water: 4.853 litres per resident per day more than Tarnvale.\n\nANSWER: Ashgrove | 4.853"
+    }
+  ]
+}

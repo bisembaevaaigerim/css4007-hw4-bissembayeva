@@ -1,0 +1,16 @@
+{
+  "question_id": "Q-15",
+  "question": "Which district has more pupils per school in 2025/26, Kelmarsh or Redfen, and by how many pupils per school?",
+  "model": "gpt-5.6-luna",
+  "result": {
+    "question_id": "Q-15",
+    "final_text": "Redfen | 27.436",
+    "answer_name": null,
+    "answer_number": null,
+    "unanswered": true,
+    "model_calls": 1,
+    "input_tokens": 2190,
+    "output_tokens": 10,
+    "seconds": 1.018
+  }
+}

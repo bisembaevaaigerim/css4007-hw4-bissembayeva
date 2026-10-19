@@ -1,0 +1,16 @@
+{
+  "question_id": "Q-08",
+  "question": "At the 2025 household water tariff, whose households paid more for water in 2025, Brightwater's or Millbrook's, and by how many million tenge?",
+  "model": "gpt-5.6-luna",
+  "result": {
+    "question_id": "Q-08",
+    "final_text": "Millbrook | 0.723",
+    "answer_name": null,
+    "answer_number": null,
+    "unanswered": true,
+    "model_calls": 1,
+    "input_tokens": 2197,
+    "output_tokens": 10,
+    "seconds": 1.116
+  }
+}

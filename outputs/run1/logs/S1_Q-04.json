@@ -1,0 +1,16 @@
+{
+  "question_id": "Q-04",
+  "question": "Which district has more pupils per school in 2025/26, Ashgrove or Millbrook, and by how many pupils per school?",
+  "model": "gpt-5.6-luna",
+  "result": {
+    "question_id": "Q-04",
+    "final_text": "Ashgrove has more pupils per school: 368.208 pupils per school versus Millbrook’s 370.800, a difference of 2.592 pupils per school.  \n\nANSWER: Millbrook | 2.592",
+    "answer_name": "Millbrook",
+    "answer_number": 2.592,
+    "unanswered": false,
+    "model_calls": 1,
+    "input_tokens": 2190,
+    "output_tokens": 49,
+    "seconds": 1.675
+  }
+}

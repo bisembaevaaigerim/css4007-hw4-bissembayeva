@@ -319,6 +319,18 @@ tests/test_tools.py::test_lookup_bad_input_does_not_crash PASSED                
 
 **What I kept the same:**
 
+- Model: `gpt-5.6-luna` for all calls, Chat Completions API.
+- `reasoning_effort="none"` for all 3 strategies (the model can not use tools in Chat Completions with hidden reasoning, so I switched it off everywhere to keep it fair).
+- The same 20 questions from `data/questions.json`. Only the question text goes to the model, never the correct answer.
+- The same answer format for all strategies: the last line `ANSWER: <name or yes/no> | <number>`, number with 3 decimals. One function (`find_answer`) reads it and one function (`is_correct`) checks it.
+- S1 and S2 get exactly the same system message (answer rule + all 17 documents). The only difference: S2 adds one line to the question ("Think step by step...") and asks 5 times.
+- S2: k = 5, `temperature = 1.0` (the model allows it, I checked it in the test run, the field `temperature` in `S2_results.json` is 1.0). S1 and S3 use the default temperature.
+- S3 gets no documents, only the two tools from A2, and the same answer rule. Round limit 8.
+- Tokens are counted from `usage` of every call: 1 call in S1, all 5 calls in S2, every round in S3.
+- Time is measured from the first call to the last call of each question. Calls run one after another, not in parallel.
+- Price: $0.20 per 1M input tokens and $1.20 per 1M output tokens.
+- I ran everything 2 times (run 1 and run 2) with the same code and settings.
+
 <!-- model, temperature, k, prompts, answer format, anything else -->
 
 **My rule for a correct answer** (written before the first full run):
@@ -329,37 +341,42 @@ tests/test_tools.py::test_lookup_bad_input_does_not_crash PASSED                
 
 | Run | Strategy | Correct /20 | Unanswered | Input tokens | Output tokens | Median seconds per question | Total seconds | Cost ($) |
 |---|---|---:|---:|---:|---:|---:|---:|---:|
-| 1 | S1 direct | | | | | | | |
-| 1 | S2 think and vote (k = ) | | | | | | | |
-| 1 | S3 tools | | | | | | | |
-| 2 | S1 direct | | | | | | | |
-| 2 | S2 think and vote (k = ) | | | | | | | |
-| 2 | S3 tools | | | | | | | |
+| 1 | S1 direct | 10 | 5 | 43900 | 887 | 1.54 | 30.8 | 0.0098 |
+| 1 | S2 think and vote (k = 5) | 15 | 0 | 222100 | 18664 | 11.15 | 223.9 | 0.0668 |
+| 1 | S3 tools | 20 | 0 | 88354 | 4763 | 5.84 | 114.3 | 0.0234 |
+| 2 | S1 direct | 10 | 4 | 43900 | 927 | 1.37 | 28.0 | 0.0099 |
+| 2 | S2 think and vote (k = 5) | 17 | 0 | 222100 | 18756 | 10.97 | 223.8 | 0.0669 |
+| 2 | S3 tools | 20 | 0 | 88122 | 4671 | 5.2 | 100.3 | 0.0232 |
+
+Cost is calculated with $0.20 per 1M input tokens and $1.20 per 1M output tokens.
+One full run (all 3 strategies, 20 questions) cost about $0.10, so the 2 full runs cost about $0.20. The test run on 3 questions and the Q-09 test cost about $0.02 more.
 
 **Per question (run 1):**
 
 | Question | S1 | S2 | S3 |
 |---|:---:|:---:|:---:|
-| Q-01 | | | |
-| Q-02 | | | |
-| Q-03 | | | |
-| Q-04 | | | |
-| Q-05 | | | |
-| Q-06 | | | |
-| Q-07 | | | |
-| Q-08 | | | |
-| Q-09 | | | |
-| Q-10 | | | |
-| Q-11 | | | |
-| Q-12 | | | |
-| Q-13 | | | |
-| Q-14 | | | |
-| Q-15 | | | |
-| Q-16 | | | |
-| Q-17 | | | |
-| Q-18 | | | |
-| Q-19 | | | |
-| Q-20 | | | |
+| Q-01 | ✓ | ✓ | ✓ |
+| Q-02 | ✗ | ✓ | ✓ |
+| Q-03 | ✗ | ✓ | ✓ |
+| Q-04 | ✓ | ✓ | ✓ |
+| Q-05 | ✗ | ✗ | ✓ |
+| Q-06 | ✓ | ✓ | ✓ |
+| Q-07 | ✓ | ✓ | ✓ |
+| Q-08 | ✗ | ✗ | ✓ |
+| Q-09 | ✗ | ✓ | ✓ |
+| Q-10 | ✓ | ✓ | ✓ |
+| Q-11 | ✗ | ✓ | ✓ |
+| Q-12 | ✗ | ✗ | ✓ |
+| Q-13 | ✓ | ✓ | ✓ |
+| Q-14 | ✓ | ✓ | ✓ |
+| Q-15 | ✗ | ✓ | ✓ |
+| Q-16 | ✓ | ✓ | ✓ |
+| Q-17 | ✗ | ✗ | ✓ |
+| Q-18 | ✓ | ✓ | ✓ |
+| Q-19 | ✓ | ✓ | ✓ |
+| Q-20 | ✗ | ✗ | ✓ |
+
+Full tables for both runs are in `outputs/run1/summary.md` and `outputs/run2/summary.md`.
 
 ---
 

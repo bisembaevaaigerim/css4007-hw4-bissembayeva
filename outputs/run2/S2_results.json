@@ -1,0 +1,422 @@
+[
+  {
+    "question_id": "Q-01",
+    "answer_name": "Ossbridge",
+    "answer_number": 4.57,
+    "votes": "2 of 5",
+    "all_answers": [
+      "Ossbridge | 4.57",
+      "Ossbridge | 4.568",
+      "Ossbridge | 4.568",
+      "Ossbridge | 4.567",
+      "Ossbridge | 4.57"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11075,
+    "output_tokens": 828,
+    "seconds": 10.566,
+    "correct": true,
+    "expected": "Ossbridge | 4.6"
+  },
+  {
+    "question_id": "Q-02",
+    "answer_name": "Harrowfield",
+    "answer_number": 1.688,
+    "votes": "5 of 5",
+    "all_answers": [
+      "Harrowfield | 1.688",
+      "Harrowfield | 1.688",
+      "Harrowfield | 1.688",
+      "Harrowfield | 1.688",
+      "Harrowfield | 1.688"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11105,
+    "output_tokens": 896,
+    "seconds": 10.033,
+    "correct": true,
+    "expected": "Harrowfield | 1.69"
+  },
+  {
+    "question_id": "Q-03",
+    "answer_name": "Lindenmoor",
+    "answer_number": 5.238,
+    "votes": "1 of 5",
+    "all_answers": [
+      "Lindenmoor | 5.238",
+      "Lindenmoor | 5.2",
+      "Lindenmoor | 5.141",
+      "Lindenmoor | 5.252",
+      "Lindenmoor | 5.264"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11105,
+    "output_tokens": 1269,
+    "seconds": 13.511,
+    "correct": true,
+    "expected": "Lindenmoor | 5.3"
+  },
+  {
+    "question_id": "Q-04",
+    "answer_name": "Millbrook",
+    "answer_number": 2.592,
+    "votes": "5 of 5",
+    "all_answers": [
+      "Millbrook | 2.592",
+      "Millbrook | 2.592",
+      "Millbrook | 2.592",
+      "Millbrook | 2.592",
+      "Millbrook | 2.592"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11080,
+    "output_tokens": 695,
+    "seconds": 9.259,
+    "correct": true,
+    "expected": "Millbrook | 2.59"
+  },
+  {
+    "question_id": "Q-05",
+    "answer_name": "Coldharbour",
+    "answer_number": 14238.906,
+    "votes": "1 of 5",
+    "all_answers": [
+      "Coldharbour | 14238.906",
+      "Coldharbour | 14204.2",
+      "Coldharbour | 14355.238",
+      "Coldharbour | 14218.138",
+      "Coldharbour | 14268.18"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11085,
+    "output_tokens": 1139,
+    "seconds": 13.779,
+    "correct": false,
+    "expected": "Coldharbour | 14235"
+  },
+  {
+    "question_id": "Q-06",
+    "answer_name": "yes",
+    "answer_number": 14069.0,
+    "votes": "5 of 5",
+    "all_answers": [
+      "yes | 14069.0",
+      "yes | 14069.0",
+      "yes | 14069.0",
+      "yes | 14069.0",
+      "yes | 14069.0"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11105,
+    "output_tokens": 688,
+    "seconds": 8.756,
+    "correct": true,
+    "expected": "yes | 14069"
+  },
+  {
+    "question_id": "Q-07",
+    "answer_name": "Coldharbour",
+    "answer_number": 18.491,
+    "votes": "1 of 5",
+    "all_answers": [
+      "Coldharbour | 18.491",
+      "Coldharbour | 18.5",
+      "Coldharbour | 18.485",
+      "Coldharbour | 18.49",
+      "Coldharbour | 18.477"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11125,
+    "output_tokens": 1066,
+    "seconds": 11.263,
+    "correct": true,
+    "expected": "Coldharbour | 18.5"
+  },
+  {
+    "question_id": "Q-08",
+    "answer_name": "Brightwater",
+    "answer_number": 72.456,
+    "votes": "2 of 5",
+    "all_answers": [
+      "Brightwater | 71.856",
+      "Brightwater | 72.036",
+      "Brightwater | 72.456",
+      "Brightwater | 72.216",
+      "Brightwater | 72.456"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11115,
+    "output_tokens": 1122,
+    "seconds": 13.193,
+    "correct": true,
+    "expected": "Brightwater | 72.46"
+  },
+  {
+    "question_id": "Q-09",
+    "answer_name": "Millbrook",
+    "answer_number": 0.559,
+    "votes": "2 of 5",
+    "all_answers": [
+      "Millbrook | 0.559",
+      "Millbrook | 0.56",
+      "Millbrook | 0.559",
+      "Millbrook | 0.569",
+      "Millbrook | 0.563"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11075,
+    "output_tokens": 894,
+    "seconds": 10.474,
+    "correct": true,
+    "expected": "Millbrook | 0.6"
+  },
+  {
+    "question_id": "Q-10",
+    "answer_name": "Stonecairn",
+    "answer_number": 8.0,
+    "votes": "5 of 5",
+    "all_answers": [
+      "Stonecairn | 8.0",
+      "Stonecairn | 8.0",
+      "Stonecairn | 8.0",
+      "Stonecairn | 8.0",
+      "Stonecairn | 8.0"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11060,
+    "output_tokens": 391,
+    "seconds": 8.012,
+    "correct": true,
+    "expected": "Stonecairn | 8"
+  },
+  {
+    "question_id": "Q-11",
+    "answer_name": "Redfen",
+    "answer_number": 56.1,
+    "votes": "5 of 5",
+    "all_answers": [
+      "Redfen | 56.1",
+      "Redfen | 56.1",
+      "Redfen | 56.1",
+      "Redfen | 56.1",
+      "Redfen | 56.1"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11150,
+    "output_tokens": 874,
+    "seconds": 11.195,
+    "correct": true,
+    "expected": "Redfen | 56.1"
+  },
+  {
+    "question_id": "Q-12",
+    "answer_name": "Tarnvale",
+    "answer_number": 64.2,
+    "votes": "1 of 5",
+    "all_answers": [
+      "Tarnvale | 64.2",
+      "Tarnvale | 63.993",
+      "Tarnvale | 64.55",
+      "Tarnvale | 64.175",
+      "Tarnvale | 64.5"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11090,
+    "output_tokens": 1095,
+    "seconds": 12.558,
+    "correct": false,
+    "expected": "Tarnvale | 64.4"
+  },
+  {
+    "question_id": "Q-13",
+    "answer_name": "Coldharbour",
+    "answer_number": 4.159,
+    "votes": "3 of 5",
+    "all_answers": [
+      "Coldharbour | 4.158",
+      "Coldharbour | 4.158",
+      "Coldharbour | 4.159",
+      "Coldharbour | 4.159",
+      "Coldharbour | 4.159"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11130,
+    "output_tokens": 1072,
+    "seconds": 12.492,
+    "correct": true,
+    "expected": "Coldharbour | 4.16"
+  },
+  {
+    "question_id": "Q-14",
+    "answer_name": "Ashgrove",
+    "answer_number": 4.89,
+    "votes": "1 of 5",
+    "all_answers": [
+      "Ashgrove | 4.89",
+      "Ashgrove | 0.005",
+      "Ashgrove | 4.815",
+      "Ashgrove | 4.72",
+      "Ashgrove | 4.785"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11105,
+    "output_tokens": 1213,
+    "seconds": 13.418,
+    "correct": true,
+    "expected": "Ashgrove | 4.9"
+  },
+  {
+    "question_id": "Q-15",
+    "answer_name": "Redfen",
+    "answer_number": 17.609,
+    "votes": "4 of 5",
+    "all_answers": [
+      "Redfen | 17.973",
+      "Redfen | 17.609",
+      "Redfen | 17.609",
+      "Redfen | 17.609",
+      "Redfen | 17.609"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11080,
+    "output_tokens": 742,
+    "seconds": 9.885,
+    "correct": true,
+    "expected": "Redfen | 17.61"
+  },
+  {
+    "question_id": "Q-16",
+    "answer_name": "yes",
+    "answer_number": 23.9,
+    "votes": "5 of 5",
+    "all_answers": [
+      "yes | 23.9",
+      "yes | 23.9",
+      "yes | 23.9",
+      "yes | 23.9",
+      "yes | 23.9"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11075,
+    "output_tokens": 662,
+    "seconds": 9.057,
+    "correct": true,
+    "expected": "yes | 23.9"
+  },
+  {
+    "question_id": "Q-17",
+    "answer_name": "Harrowfield",
+    "answer_number": 886.987,
+    "votes": "1 of 5",
+    "all_answers": [
+      "Harrowfield | 886.987",
+      "Harrowfield | 885.34",
+      "Harrowfield | 889.159",
+      "Harrowfield | 888.481",
+      "Harrowfield | 888.326"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11135,
+    "output_tokens": 1245,
+    "seconds": 13.08,
+    "correct": false,
+    "expected": "Harrowfield | 884"
+  },
+  {
+    "question_id": "Q-18",
+    "answer_name": "yes",
+    "answer_number": 40013.91,
+    "votes": "1 of 5",
+    "all_answers": [
+      "yes | 40013.91",
+      "yes | 40014.652",
+      "yes | 40013.49",
+      "yes | 40014.417",
+      "yes | 40012.7"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11190,
+    "output_tokens": 759,
+    "seconds": 10.743,
+    "correct": true,
+    "expected": "yes | 40013"
+  },
+  {
+    "question_id": "Q-19",
+    "answer_name": "Lindenmoor",
+    "answer_number": 0.035,
+    "votes": "5 of 5",
+    "all_answers": [
+      "Lindenmoor | 0.035",
+      "Lindenmoor | 0.035",
+      "Lindenmoor | 0.035",
+      "Lindenmoor | 0.035",
+      "Lindenmoor | 0.035"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11075,
+    "output_tokens": 827,
+    "seconds": 9.65,
+    "correct": true,
+    "expected": "Lindenmoor | 0.035"
+  },
+  {
+    "question_id": "Q-20",
+    "answer_name": "Ashgrove",
+    "answer_number": 2993.333,
+    "votes": "1 of 5",
+    "all_answers": [
+      "Ashgrove | 2993.333",
+      "Ashgrove | 3003.438",
+      "Ashgrove | 2996.643",
+      "Ashgrove | 3000.336",
+      "Ashgrove | 2996.994"
+    ],
+    "unanswered": false,
+    "model_calls": 5,
+    "temperature": 1.0,
+    "input_tokens": 11140,
+    "output_tokens": 1279,
+    "seconds": 12.837,
+    "correct": true,
+    "expected": "Ashgrove | 2993"
+  }
+]
