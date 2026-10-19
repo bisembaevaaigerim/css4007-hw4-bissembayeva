@@ -454,7 +454,53 @@ Why the calculator removes the mistakes from S1 and S2: `calculate` does the div
 
 ### C3 — Which strategy I would use, and what would change it
 
+**My choice: S3 (tools).**
+
+| | S1 direct | S2 think and vote | S3 tools |
+|---|---|---|---|
+| Correct (run 1 / run 2) | 10 / 10 | 15 / 17 | **20 / 20** |
+| Cost for 20 questions | $0.0098 | $0.0668 | $0.0234 |
+| Tokens (input + output, run 1) | 44787 | 240764 | 93117 |
+| Median seconds per question | 1.5 | 11.1 | 5.8 |
+
+S3 was the only strategy with no mistakes, and it gave the same answers in both runs. It is in the middle for cost and time: about 2.4 times more expensive than S1, but 2.9 times cheaper than S2, and 2 times faster than S2.
+
+The reason is the principle, not only the number: in this task every question needs exact facts and exact arithmetic. S3 moves both parts out of the model. `lookup` handles the traps (archived profiles, the NR-16 correction, cubic metres) in code, and `calculate` does the maths exactly. The model only has to plan which facts to get and which formula to use, and this is the part it does well.
+
+**Why not S1:** it is the cheapest and fastest, but it was wrong on half of the questions (10/20 in both runs). Without a place to write the steps the model guesses the numbers (Q-02: it wrote 0.226 although its own numbers give 1.002), sometimes even the winner is wrong (Q-12), and 4-5 times per run it did not follow the answer format. A cheap answer that is wrong half of the time is not useful.
+
+**Why not S2:** writing the steps fixed most of the facts and the logic (15-17/20), but S2 is the most expensive (almost 7 times S1, 3 times S3) and the slowest (11 seconds per question). And it can not fix its main remaining problem: the long divisions in its head. Voting does not help here, because every sample makes a slightly different number (votes "1 of 5" in Q-05, Q-12, Q-17, Q-20), and the error goes in the same direction (Q-17: all 5 numbers above 884.457). Paying 5 times more for the same kind of mistake is not a good deal.
+
+**Situations that would change my choice:**
+
+1. **Questions with no arithmetic**, only one fact (for example "When was Stonecairn founded?"). Then the calculator is not needed and the traps are the only risk. I would pick **S1**, maybe with a short "think step by step": it is 1 call, about 1.5 seconds and the cheapest. Q-10 (founding years, only a subtraction of two years) was correct for all 3 strategies in both runs.
+2. **A strict time limit**, for example an answer in under 2 seconds. S3 needs 3-4 calls one after another (median 5.8 s), S2 needs 11 s. Only **S1** fits, and I would accept the lower accuracy (or answer only the simple questions).
+3. **1000 times more documents** (about 2.3 million tokens). S1 and S2 put all documents in the prompt, so this does not fit in the model's context at all, and even if it did, every S2 question would cost 1000 times more. **S3** becomes even better, because it never sends the documents, but my `lookup` would need an index (see final question 6).
+4. **A very small budget.** S3 is still my choice, because it is only $0.0234 for 20 questions and correct. S2 is the first strategy I would drop. Only if the budget was so small that 3-4 calls per question are too many, I would use S1.
+5. **Questions that my 10 fields can not answer** (for example "Which river is Ossbridge on?"). My `lookup` has no field for this. Then I would use **S2** or change `lookup` to a search tool that returns sentences.
+
 ### C4 — How sure I can be
+
+**How different were my two runs?**
+- S1: 10/20 in both runs, but this hides the noise: 4 questions changed (Q-02 and Q-09 became correct, Q-14 and Q-19 became wrong).
+- S2: 15/20 and 17/20, 2 questions changed (Q-08 and Q-20 became correct).
+- S3: 20/20 in both runs, no question changed, and the numbers were exactly the same (the calculator gives the same result every time).
+So with 20 questions one strategy can move by 2-4 questions between two runs, only because of randomness.
+
+**Is the difference between my two best strategies bigger than that?**
+The two best are S3 and S2. The difference is 5 questions in run 1 (20 vs 15) and 3 in run 2 (20 vs 17). This is bigger than the S2 noise (2 questions), but not by much. A better way is to look at the questions where they disagree. On 5 questions (Q-05, Q-08, Q-12, Q-17, Q-20) S3 was better in at least one run, and there was no question where S2 was better than S3. If both strategies were equally good, each of these 5 questions would go either way like a coin, and the chance that all 5 go to S3 (or all 5 to S2) is 2 × (1/2)^5 = 0.0625, about 6%. So the result is strong, but with 20 questions it is just at the edge of what people normally accept (5%). Q-05, Q-12 and Q-17 were wrong for S2 in both runs, so these are not just bad luck.
+
+The difference between S2/S3 and S1 (about 7-10 questions) is much bigger than the noise, so I trust that S1 is the worst.
+
+**What 20 questions can not show:**
+- S3 had 0 mistakes in 20, but this does not mean 100%. With 0 errors in 20 the real error rate can still be up to about 3/20 = 15% (the "rule of three", 95% sure). So I can only say S3 is at least about 85% accurate.
+- For S2 (about 80%) the standard error with 20 questions is sqrt(0.8 × 0.2 / 20) = 0.09, so about ±9 percentage points, or ±2 questions. This fits what I saw (15 and 17).
+- All 20 questions are the same kind (compare 2-3 districts with arithmetic), on one small made-up corpus, with one model and 2 runs. My conclusion is only for this kind of question. On other questions (no arithmetic, long texts) the ranking could be different (see C3).
+
+**How many questions would I need?**
+- To be sure that S3 is better than S2 (about 97% vs 80%) with the normal test (95% sure, 80% chance to see the difference), I would need about 70 questions per strategy.
+- To measure the accuracy of S2 within ±5 percentage points I would need about 1.96² × 0.8 × 0.2 / 0.05² ≈ 250 questions.
+- With 20 questions and 2 runs I trust the order S3 > S2 > S1 for this type of question, but I would not trust exact numbers like "S2 is 80% accurate".
 
 ### Final questions
 
