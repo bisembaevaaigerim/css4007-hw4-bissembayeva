@@ -504,11 +504,26 @@ The difference between S2/S3 and S1 (about 7-10 questions) is much bigger than t
 
 ### Final questions
 
-1.
-2.
-3.
-4.
-5.
-6.
-7.
-8.
+1. **When the model sends a `tool_calls` message, what has actually run so far?**
+Nothing. The model only wrote text that asks for a function with some arguments, it can not run code. In my Q-09 log, round 1 is only a message with `"content": null` and 4 `tool_calls`. `lookup` ran only after that, when my loop called `run_tool`, and the model saw the results only in the next request.
+
+2. **Why does `arguments` arrive as a string, and what goes wrong if you pass it straight into your function?**
+The model makes text token by token, and the arguments are also text that it writes, so the API gives them as a string. This string can be broken JSON, or have missing or extra keys, because nothing checks it before me. In my Q-09 log the same kind of call came once as `{"expression": "..."}` and once as `{"expression":"..."}` (no space), which shows it is free text. If I pass the string straight in, `lookup` gets the whole text `{"district": ...}` as one argument and fails, so my loop first does `json.loads` in a `try`, checks that it is a dict with the needed keys, and only then calls the tool.
+
+3. **How many tokens do your two tool definitions add to every S3 request? Measure it.**
+I sent the same S3 system message and question twice, once with `tools=TOOLS` and once without (`measure_tools.py`): 738 prompt tokens with tools and 116 without, so my two tool definitions add 622 tokens to every S3 request. This is 84% of the first S3 request, and it is sent again in every round of the loop: for Q-20 (4 model calls) it is 4 × 622 = 2488 of the 5504 input tokens, almost half. In C1 I saw that the long `lookup` description alone is about 240 of these tokens (the vague version used 240 tokens less per call).
+
+4. **How much more did S2 cost than S1? Give the number from your table and explain it.**
+In run 1 S2 cost $0.0668 and S1 $0.0098, so S2 was about 6.8 times more expensive (run 2: $0.0669 vs $0.0099). Input tokens were 5.1 times more (222100 vs 43900), because S2 sends the same prompt with all 17 documents 5 times. Output tokens were 21 times more (18664 vs 887), because S2 asks the model to write all steps 5 times, and output tokens are 6 times more expensive than input tokens ($1.20 vs $0.20 per million). That is why the cost grew more than 5 times.
+
+5. **Which question needed the most rounds in S3, and why?**
+No question needed more than 4 model calls, so the round limit of 8 was never reached. The biggest one was Q-20 (4 model calls, 10 tool calls, 5504 input tokens), and Q-11 was almost the same (10 tool calls). Both compare 3 districts, so they need 6 facts and 3 divisions, and then one more round for "highest minus lowest", because the model can only write that difference after it sees which result is the highest and which is the lowest.
+
+6. **What would you change in `lookup` if there were 100000 documents?**
+Now `lookup` goes through all documents and runs my regex patterns every time it is called, which is fine for 17 documents but too slow for 100000. I would read all profiles once and build an index: a dictionary from district name to its current profile (archived ones removed and corrections already applied), or better a small database table with one row per district and one column per field, so one call is just one fast search. I would also need a better name search than `difflib` over a list (for many names), and if the documents are not all in the same style, the regex patterns would not be enough, so I would add a search tool that returns the best matching sentences.
+
+7. **What stops your `calculate` from running dangerous code? Could the model still make it misbehave?**
+`calculate` never uses `eval` or `exec`. It reads the text with `ast.parse`, which only builds a tree, and my code calculates the tree by itself, allowing only numbers, `+ - * / **` and brackets; names, function calls, attributes and text give an error. It also checks the exponent before a power (so `9**9**9` stops at once), limits every result to 1e15 and the text to 200 characters. The model can still make it give a wrong answer by sending a wrong formula or a wrong number (the calculator trusts its input), and it could call it again and again, which costs money; my loop stops this after 8 rounds.
+
+8. **For which kind of question did tools help most, and for which did they not help at all?**
+Tools helped most on questions with long divisions of big numbers: Q-05, Q-12 and Q-17 were wrong for S2 in both runs only because of arithmetic (for example Q-17: 886.395 instead of 884.457), and S3 got them right every time. They also helped with the traps, like the cubic metres in Q-03, where S1 answered 0.078 instead of 5.3. They did not help at all on simple questions with small whole numbers, like Q-10 (founding years), Q-06 and Q-16 (adding populations or areas): all 3 strategies were correct in both runs, so there S3 only cost more and was slower (about 5 seconds instead of 1.5).
