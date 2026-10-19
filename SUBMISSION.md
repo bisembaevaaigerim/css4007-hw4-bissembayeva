@@ -160,10 +160,103 @@ If I used `eval`, the model could run any Python code on my computer, for exampl
 
 ### A3 — Q-09 by hand
 
+Q-09: *"Which district has the higher population density in 2025, Brightwater or Millbrook, and by how many residents per square kilometre?"*
+
+I expect 3 calls to the model:
+- round 1: the model asks for 4 facts at the same time (2 districts x 2 fields)
+- round 2: the model asks for 3 calculations at the same time
+- round 3: the model writes the final answer
+
+So it is 3 model calls and 7 tool calls. I calculate the difference in one expression from the raw numbers, so nothing is rounded in the middle.
+Note: `arguments` is a string with JSON inside, this is how the API sends it.
+The `evidence` is copied from the documents, so the numbers there have commas like in the original text.
+
 ```json
+[
+  {
+    "role": "system",
+    "content": "Answer questions about the Nine Rivers Region. You do not have the documents. Get every fact with the lookup tool and do every calculation with the calculate tool. End your reply with one line: ANSWER: <name or yes/no> | <number with 3 decimals>"
+  },
+  {
+    "role": "user",
+    "content": "Which district has the higher population density in 2025, Brightwater or Millbrook, and by how many residents per square kilometre?"
+  },
+
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {"id": "call_1", "type": "function", "function": {"name": "lookup", "arguments": "{\"district\": \"Brightwater\", \"field\": \"population_2025\"}"}},
+      {"id": "call_2", "type": "function", "function": {"name": "lookup", "arguments": "{\"district\": \"Brightwater\", \"field\": \"area_km2\"}"}},
+      {"id": "call_3", "type": "function", "function": {"name": "lookup", "arguments": "{\"district\": \"Millbrook\", \"field\": \"population_2025\"}"}},
+      {"id": "call_4", "type": "function", "function": {"name": "lookup", "arguments": "{\"district\": \"Millbrook\", \"field\": \"area_km2\"}"}}
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_1",
+    "content": "{\"district\": \"Brightwater\", \"field\": \"population_2025\", \"value\": 44675, \"unit\": \"residents\", \"source\": \"NR-05\", \"corrected_by\": null, \"note\": \"\", \"evidence\": \"Census population: 39,902 in 2020 and 44,675 in 2025.\"}"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_2",
+    "content": "{\"district\": \"Brightwater\", \"field\": \"area_km2\", \"value\": 921.4, \"unit\": \"km2\", \"source\": \"NR-05\", \"corrected_by\": \"NR-16\", \"note\": \"NR-16 corrects 912.4 to 921.4\", \"evidence\": \"The district, founded in 1889, stretches along the Bright over 912.4 square kilometres and keeps 455.0 km of paved road.\"}"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_3",
+    "content": "{\"district\": \"Millbrook\", \"field\": \"population_2025\", \"value\": 37203, \"unit\": \"residents\", \"source\": \"NR-11\", \"corrected_by\": null, \"note\": \"\", \"evidence\": \"Census population: 34,590 in 2020 and 37,203 in 2025.\"}"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_4",
+    "content": "{\"district\": \"Millbrook\", \"field\": \"area_km2\", \"value\": 758.6, \"unit\": \"km2\", \"source\": \"NR-11\", \"corrected_by\": null, \"note\": \"\", \"evidence\": \"The district, founded in 1897, stretches along the Mill Brook over 758.6 square kilometres and keeps 360.1 km of paved road.\"}"
+  },
+
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {"id": "call_5", "type": "function", "function": {"name": "calculate", "arguments": "{\"expression\": \"44675 / 921.4\"}"}},
+      {"id": "call_6", "type": "function", "function": {"name": "calculate", "arguments": "{\"expression\": \"37203 / 758.6\"}"}},
+      {"id": "call_7", "type": "function", "function": {"name": "calculate", "arguments": "{\"expression\": \"37203 / 758.6 - 44675 / 921.4\"}"}}
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_5",
+    "content": "{\"expression\": \"44675 / 921.4\", \"result\": 48.48599956587801}"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_6",
+    "content": "{\"expression\": \"37203 / 758.6\", \"result\": 49.041655681518584}"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_7",
+    "content": "{\"expression\": \"37203 / 758.6 - 44675 / 921.4\", \"result\": 0.5556561156405735}"
+  },
+
+  {
+    "role": "assistant",
+    "content": "Brightwater has 48.486 residents per km2 (44675 residents on 921.4 km2, the area is corrected by NR-16). Millbrook has 49.042 residents per km2 (37203 residents on 758.6 km2). Millbrook is denser by 0.556 residents per km2.\nANSWER: Millbrook | 0.556"
+  }
+]
 ```
 
 **My arithmetic:**
+
+- Brightwater = 48.4860 residents per km2
+- Millbrook = 49.0417 residents per km2
+
+Millbrook is bigger, so Millbrook is denser.
+Difference = 0.5557 = **0.6**.
+This is the same as the correct answer in `questions.json` (Millbrook, 0.6), so the conversation gives the right answer.
+
+Why the traps matter here:
+- If the model used the wrong area 912.4 from NR-05: 44675 / 912.4 = 48.9643, difference = 49.0417 - 48.9643 = 0.0774, rounded = **0.1**. Wrong answer, but Millbrook is still the winner, so only the number would be wrong and it would be easy to miss.
+- If the densities were rounded before the subtraction: 49.0 - 48.5 = **0.5**. Also wrong. This is why I round only at the end.
 
 ### A4 — Why I split it this way
 
