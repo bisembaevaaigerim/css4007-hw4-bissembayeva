@@ -260,7 +260,16 @@ Why the traps matter here:
 
 ### A4 — Why I split it this way
 
-<!-- one other way to split the task, and why you did not choose it -->
+**Other way: a search `lookup`.** `lookup` returns 2-3 sentences that match a phrase like `"Brightwater area"`, and the model takes the number by itself.
+
+Good points: it is more flexible (the model can ask about anything, not only my 10 fields) and the tool is simpler to write.
+
+**Why I did not choose it:**
+1. **The traps move to the model.** The model must notice ARCHIVED profiles (NR-13, NR-14), search for the correction NR-16 by itself and convert Lindenmoor cubic metres. These are the traps where a model makes mistakes. In my design these rules are in code and work the same every time.
+2. **Easier to test.** I can test "Brightwater area_km2 gives 921.4 from NR-05, corrected by NR-16" without the model. With search, the important part (does the model choose the right number?) can only be checked by running the model.
+3. **Fewer tokens.** My tool returns one number and one sentence, not 2-3 sentences. Every tool result stays in the conversation, so it is sent again in every next round.
+4. **No wrong number from the right sentence.** NR-05 says "39,902 in 2020 and 44,675 in 2025" in one sentence. The model could take the wrong one, my tool takes the 2025 number in code.
+
 
 ---
 
