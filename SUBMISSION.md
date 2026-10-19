@@ -410,6 +410,48 @@ So in my design the description matters less than I thought, because the paramet
 
 ### C2 — Three mistakes explained
 
+#### S1 (direct): Q-02, run 1
+
+Log `outputs/run1/S1_results.json`, Q-02:
+> "Harrowfield grew faster by 0.226 percentage points. Tarnvale grew 6.209% and Harrowfield grew 7.211%. ANSWER: Harrowfield | 0.226"
+
+The correct answer is Harrowfield, 1.69. The correct growth is Tarnvale (71388 - 67214) / 67214 = 6.210% and Harrowfield (90212 - 83609) / 83609 = 7.897%.
+
+What happened: the name is right, but the maths is wrong twice. First, the Harrowfield growth (7.211%) is wrong. Second, the model can not even subtract its own numbers: 7.211 - 6.209 = 1.002, but it wrote 0.226. In S1 there is no place for steps: the model wrote one short answer, so it has to find 4 numbers, do 2 divisions and 1 subtraction "in one jump". A language model makes the next token from the text it already has, so when the middle results are not written down, it has nothing to build on, and the numbers it writes are only "probable looking" numbers. This is also why 5 S1 answers had no `ANSWER:` line at all: for example Q-09 was only `Millbrook | 0.000` with 10 output tokens. Even if my parser read those lines, 4 of the 5 numbers were also wrong (Q-17: 8.807 instead of 884, Q-20: Harrowfield instead of Ashgrove), so the format rule changed the score by at most 1 question (Q-15).
+
+#### S2 (think and vote): Q-17, run 1
+
+Log `outputs/run1/logs/S2_Q-17.json`, all 5 answers and sample 1:
+> all 5 answers: Harrowfield | 886.395, 890.122, 887.578, 887.601, 885.665, votes: 1 of 5
+> "Harrowfield: 7,146 × 1,000 × 142.35 ÷ 90,212 = 11,278.289 tenge per resident. Ossbridge: 3,862 × 1,000 × 142.35 ÷ 52,904 = 10,391.894 ... Difference: 886.395"
+
+The correct answer is Harrowfield, 884 (exact 884.457).
+
+What happened: step-by-step thinking fixed the facts. All facts and their documents are right (NR-07, NR-01, NR-15), the unit change from megalitres to cubic metres is right and the formula is right. Only the division is wrong: 1017233100 / 90212 is 11276.029, not 11278.289 (+2.26 tenge). So writing the steps helps with the logic, but the model still does the long division "in its head".
+
+Why voting did not fix it: voting works when wrong answers are different and the right answer repeats, like a name (Millbrook or Brightwater) or yes/no. Here the answer is a number with 3 decimals. Every sample made a slightly different arithmetic mistake, so all 5 numbers are different and every answer got 1 vote. My code then takes the first one, so voting did nothing. The same happened in Q-05, Q-12 and Q-20 (all "1 of 5"). Even the average of the 5 numbers would not help: all 5 are bigger than 884.457 (885.7 to 890.1), so the error is a bias, not random noise. Taking k samples reduces the random part of the error (variance), but it can not remove an error that goes in the same direction every time (bias).
+
+Voting can even make a mistake stronger. In Q-08 the 5 answers were `yes | 72.156`, `Brightwater | 72.456`, `yes | 72.456`, `Brightwater | 72.036`, `yes | 72.456`. The model often answered "yes" instead of the district name (my answer rule says "<district name or yes/no>", and the question "whose households paid more" confused it). `yes | 72.456` appeared 2 times and won the vote, so the common format mistake beat the correct answer.
+
+Price: S2 used 5 calls per question and long reasoning, so it cost $0.0668 in run 1, almost 7 times more than S1 ($0.0098), and still had 5 wrong answers.
+
+#### S3 (tools): no mistakes, so the most expensive question: Q-20, run 1
+
+S3 was correct on all 20 questions in both runs. The most expensive question was Q-20 (5504 input tokens, 335 output tokens, 4 model calls, 10 tool calls). Log `outputs/run1/logs/S3_Q-20.json`:
+
+| Round | Input tokens | What the model asked for |
+|---|---:|---|
+| 1 | 761 | 6 × `lookup`: budget and population for Ossbridge, Ashgrove, Harrowfield |
+| 2 | 1424 | 3 × `calculate`: `9284.5 * 1000000 / 52904`, `10488.1 * 1000000 / 58760`, `16021.7 * 1000000 / 90212` |
+| 3 | 1622 | 1 × `calculate`: `178490.46970728386 - 175497.12687131407` |
+| 4 | 1697 | final answer `Ashgrove | 2993.343` (correct: 2993) |
+
+Why it needed this many rounds: Q-20 has 3 districts, so it needs 6 facts. The facts come in round 1, the 3 divisions can only be written after the facts are known (round 2), and the difference "highest minus lowest" can only be written after the model sees which result is the highest and which is the lowest (round 3). Each step depends on the result of the step before, so they can not be in the same round. Then one more call for the answer.
+
+Why each round costs more: the model does not remember anything between calls, so every round sends the whole conversation again: the system message, the tool definitions, the question and all old tool calls and results. Round 2 is +663 tokens because the 6 `lookup` results (with their `evidence` sentences) are now in the conversation. Rounds 3 and 4 add less, because `calculate` results are short. So the total (5504) is much more than the last round alone (1697).
+
+Why the calculator removes the mistakes from S1 and S2: `calculate` does the division in Python, so the result is exact every time (2993.343, and 884.457 for Q-17, where S2 had 886.395). The model only has to choose the right formula. In round 3 the model even copied the full numbers from the calculator results (`178490.46970728386`), so nothing was rounded in the middle. The error that S2 can not remove (the arithmetic bias) does not exist in S3 at all. The cost is more model calls per question (4 instead of 1) and more tokens than S1, but S3 was still about 3 times cheaper than S2 ($0.0234 vs $0.0668).
+
 ### C3 — Which strategy I would use, and what would change it
 
 ### C4 — How sure I can be
